@@ -376,6 +376,7 @@ nav a.active,
     color: #0066cc;
     margin-bottom: 15px;
     background: linear-gradient(45deg, #0066cc, #3399ff);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
