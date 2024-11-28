@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Consulting Co.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="Consulting Co. Logo">
+                </a>
+            </div>
+            <nav>
+                <a href="../index.html">Home</a>
+                <div class="dropdown">
+                    <a href="../finance/finance.html" class="dropdown-toggle">Finance</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="../finance/financial-planning.html">Financial Planning</a></li>
+                            <li><a href="../finance/investment-strategy.html">Investment Strategy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="../sales/sales.html" class="dropdown-toggle">Sales</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="../sales/sales-strategy.html">Sales Strategy</a></li>
+                            <li><a href="../sales/business-development.html">Business Development</a></li>
+                            <li><a href="../sales/client-relations.html">Client Relations</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="../marketing/marketing.html" class="dropdown-toggle">Marketing</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="../marketing/digital-marketing.html">Digital Marketing</a></li>
+                            <li><a href="../marketing/content-strategy.html">Content Strategy</a></li>
+                            <li><a href="../marketing/social-media.html">Social Media</a></li>
+                            <li><a href="../marketing/brand-development.html">Brand Development</a></li>
+                            <li><a href="../marketing/market-research.html">Market Research</a></li>
+                            <li><a href="../marketing/analytics.html">Analytics & Reporting</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="../personnel/personnel.html" class="dropdown-toggle">Personnel</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="../personnel/recruitment.html">Recruitment</a></li>
+                            <li><a href="../personnel/training.html">Training & Development</a></li>
+                            <li><a href="../personnel/performance.html">Performance Management</a></li>
+                            <li><a href="../personnel/culture.html">Culture & Engagement</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="login.html" id="loginLink"><span id="userName">Login</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="register-container">
+        <div class="register-form">
+            <h1>Create Your Account</h1>
+            <form id="registerForm" onsubmit="return handleRegister(event)">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" required
+                           placeholder="Enter your first name"
+                           autocomplete="given-name">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required
+                           placeholder="Enter your last name"
+                           autocomplete="family-name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required
+                           placeholder="Enter your email address"
+                           autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required
+                           placeholder="Create a strong password"
+                           autocomplete="new-password"
+                           onkeyup="updatePasswordStrength(this.value)">
+                    <div class="password-strength">
+                        <div class="password-strength-bar"></div>
+                    </div>
+                    <small>Password must be at least 8 characters and include letters, numbers, and special characters</small>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required
+                           placeholder="Confirm your password"
+                           autocomplete="new-password">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn-primary" id="registerButton">
+                        <span>Create Account</span>
+                    </button>
+                </div>
+                <div class="form-links">
+                    <p>Already have an account? <a href="login.html">Log In</a></p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Consulting Co. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html>

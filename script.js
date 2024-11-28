@@ -49,40 +49,32 @@ window.onload = function() {
     });
 
     // Add hover effect to service cards
-    document.querySelectorAll('.service-card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+        card.addEventListener('mouseover', () => {
+            card.classList.add('hover');
+        });
+        card.addEventListener('mouseout', () => {
+            card.classList.remove('hover');
         });
     });
-
-    // Animate numbers in statistics
-    animateNumbers();
-};
+}
 
 // Animate statistics numbers
 function animateNumbers() {
     const stats = document.querySelectorAll('.stat-number');
     stats.forEach(stat => {
         const target = parseInt(stat.getAttribute('data-target'));
-        const duration = 2000; // 2 seconds
-        const step = target / (duration / 16); // 60fps
         let current = 0;
-
-        const updateNumber = () => {
-            current += step;
-            if (current < target) {
-                stat.textContent = Math.round(current);
-                requestAnimationFrame(updateNumber);
-            } else {
+        const increment = target / 50; // Adjust speed here
+        const timer = setInterval(() => {
+            current += increment;
+            stat.textContent = Math.round(current);
+            if (current >= target) {
                 stat.textContent = target;
+                clearInterval(timer);
             }
-        };
-        updateNumber();
+        }, 20);
     });
 }
 
@@ -96,47 +88,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Smooth scroll for finance services navigation
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.services-nav .nav-item');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-            
-            if (targetSection) {
-                const headerOffset = 100; // Adjust this value based on your header height
-                const elementPosition = targetSection.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+// Counter functionality
+let visitCount = parseInt(localStorage.getItem('visitCount')) || 0;
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Animate statistics
-    const stats = document.querySelectorAll('.stat-number');
-    stats.forEach(stat => {
-        const target = parseInt(stat.getAttribute('data-target'));
-        const increment = target / 200;
-        
-        function updateCounter() {
-            const value = parseInt(stat.textContent);
-            if (value < target) {
-                stat.textContent = Math.ceil(value + increment);
-                setTimeout(updateCounter, 1);
-            } else {
-                stat.textContent = target;
-            }
-        }
-        
-        updateCounter();
-    });
-});
+function updateCounter() {
+    visitCount++;
+    localStorage.setItem('visitCount', visitCount);
+    const counterElement = document.getElementById('visitCounter');
+    if (counterElement) {
+        counterElement.textContent = visitCount;
+    }
+}
