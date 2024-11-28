@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media - Consulting Co.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Consulting Co.</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="finance.html" class="dropdown-toggle">Finance</a>
+                <div class="dropdown-menu">
+                    <a href="financial-planning.html">Financial Planning</a>
+                    <a href="investment-strategy.html">Investment Strategy</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="sales.html" class="dropdown-toggle">Sales</a>
+                <div class="dropdown-menu">
+                    <a href="sales-strategy.html">Sales Strategy</a>
+                    <a href="business-development.html">Business Development</a>
+                    <a href="client-relations.html">Client Relations</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="marketing.html" class="dropdown-toggle active">Marketing</a>
+                <div class="dropdown-menu">
+                    <a href="digital-marketing.html">Digital Marketing</a>
+                    <a href="content-strategy.html">Content Strategy</a>
+                    <a href="social-media.html" class="active">Social Media</a>
+                    <a href="brand-development.html">Brand Development</a>
+                    <a href="market-research.html">Market Research</a>
+                    <a href="analytics.html">Analytics & Reporting</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="personnel.html" class="dropdown-toggle">Personnel</a>
+                <div class="dropdown-menu">
+                    <a href="recruitment.html">Recruitment</a>
+                    <a href="training.html">Training & Development</a>
+                    <a href="performance.html">Performance Management</a>
+                    <a href="culture.html">Culture & Engagement</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero marketing-hero">
+            <div class="hero-content">
+                <h1>Social Media Management</h1>
+                <p>Build your brand presence across social platforms</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="service-content centered">
+                <h2>Social Media Solutions</h2>
+                <p>Comprehensive social media management services:</p>
+                <ul>
+                    <li>Platform Strategy Development</li>
+                    <li>Content Creation & Scheduling</li>
+                    <li>Community Management</li>
+                    <li>Social Media Advertising</li>
+                    <li>Influencer Partnerships</li>
+                    <li>Analytics & Reporting</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="features-showcase">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3>Platform Management</h3>
+                <p>Strategic management across social platforms</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Profile optimization</li>
+                    <li><i class="fas fa-check"></i> Content scheduling</li>
+                    <li><i class="fas fa-check"></i> Brand consistency</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Community Building</h3>
+                <p>Engage and grow your social community</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Audience engagement</li>
+                    <li><i class="fas fa-check"></i> Response management</li>
+                    <li><i class="fas fa-check"></i> Community guidelines</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Performance Tracking</h3>
+                <p>Monitor and optimize social performance</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Metrics analysis</li>
+                    <li><i class="fas fa-check"></i> Growth tracking</li>
+                    <li><i class="fas fa-check"></i> ROI measurement</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <h2>Social Media Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Strategy</h3>
+                    <p>Develop platform-specific strategies</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Creation</h3>
+                    <p>Create engaging social content</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Engagement</h3>
+                    <p>Manage community interaction</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Analysis</h3>
+                    <p>Track and optimize performance</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="functional-section">
+            <div class="text-block">
+                <h3>Platform Strategy</h3>
+                <textarea id="platform-strategy" placeholder="Define your social media platform strategy..."></textarea>
+                <button onclick="saveText('platform-strategy')" class="save-btn">Save</button>
+            </div>
+            <div class="text-block">
+                <h3>Content Calendar</h3>
+                <textarea id="social-calendar" placeholder="Plan your social media content schedule..."></textarea>
+                <button onclick="saveText('social-calendar')" class="save-btn">Save</button>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Enhance Your Social Media Presence?</h2>
+                <p>Let's create a social media strategy that connects with your audience</p>
+                <button class="cta-button">Schedule Consultation</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

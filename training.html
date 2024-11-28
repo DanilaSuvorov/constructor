@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training & Development - Consulting Co.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Consulting Co.</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="finance.html" class="dropdown-toggle">Finance</a>
+                <div class="dropdown-menu">
+                    <a href="financial-planning.html">Financial Planning</a>
+                    <a href="investment-strategy.html">Investment Strategy</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="sales.html" class="dropdown-toggle">Sales</a>
+                <div class="dropdown-menu">
+                    <a href="sales-strategy.html">Sales Strategy</a>
+                    <a href="business-development.html">Business Development</a>
+                    <a href="client-relations.html">Client Relations</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="marketing.html" class="dropdown-toggle">Marketing</a>
+                <div class="dropdown-menu">
+                    <a href="digital-marketing.html">Digital Marketing</a>
+                    <a href="content-strategy.html">Content Strategy</a>
+                    <a href="social-media.html">Social Media</a>
+                    <a href="brand-development.html">Brand Development</a>
+                    <a href="market-research.html">Market Research</a>
+                    <a href="analytics.html">Analytics & Reporting</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="personnel.html" class="dropdown-toggle active">Personnel</a>
+                <div class="dropdown-menu">
+                    <a href="recruitment.html">Recruitment</a>
+                    <a href="training.html" class="active">Training & Development</a>
+                    <a href="performance.html">Performance Management</a>
+                    <a href="culture.html">Culture & Engagement</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero personnel-hero">
+            <div class="hero-content">
+                <h1>Training & Development</h1>
+                <p>Empower your team with essential skills and knowledge</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="service-content centered">
+                <h2>Training Solutions</h2>
+                <p>Comprehensive training and development programs:</p>
+                <ul>
+                    <li>Skills Assessment & Gap Analysis</li>
+                    <li>Custom Training Programs</li>
+                    <li>Leadership Development</li>
+                    <li>Professional Certifications</li>
+                    <li>Mentorship Programs</li>
+                    <li>Performance Tracking</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="features-showcase">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Custom Programs</h3>
+                <p>Tailored learning experiences</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Needs assessment</li>
+                    <li><i class="fas fa-check"></i> Program design</li>
+                    <li><i class="fas fa-check"></i> Implementation support</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <h3>Skill Development</h3>
+                <p>Build essential competencies</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Technical skills</li>
+                    <li><i class="fas fa-check"></i> Soft skills</li>
+                    <li><i class="fas fa-check"></i> Leadership skills</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Progress Tracking</h3>
+                <p>Measure learning outcomes</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Performance metrics</li>
+                    <li><i class="fas fa-check"></i> Progress reports</li>
+                    <li><i class="fas fa-check"></i> ROI analysis</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <h2>Development Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Assessment</h3>
+                    <p>Identify training needs</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Design</h3>
+                    <p>Create custom programs</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Implementation</h3>
+                    <p>Deliver training solutions</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Evaluation</h3>
+                    <p>Measure effectiveness</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="functional-section">
+            <div class="text-block">
+                <h3>Training Needs</h3>
+                <textarea id="training-needs" placeholder="Describe your team's training requirements..."></textarea>
+                <button onclick="saveText('training-needs')" class="save-btn">Save</button>
+            </div>
+            <div class="text-block">
+                <h3>Development Goals</h3>
+                <textarea id="development-goals" placeholder="Define your team's development objectives..."></textarea>
+                <button onclick="saveText('development-goals')" class="save-btn">Save</button>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Develop Your Team?</h2>
+                <p>Let's create a training program that drives success</p>
+                <button class="cta-button">Schedule Consultation</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

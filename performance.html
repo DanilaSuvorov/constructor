@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Management - Consulting Co.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Consulting Co.</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="finance.html" class="dropdown-toggle">Finance</a>
+                <div class="dropdown-menu">
+                    <a href="financial-planning.html">Financial Planning</a>
+                    <a href="investment-strategy.html">Investment Strategy</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="sales.html" class="dropdown-toggle">Sales</a>
+                <div class="dropdown-menu">
+                    <a href="sales-strategy.html">Sales Strategy</a>
+                    <a href="business-development.html">Business Development</a>
+                    <a href="client-relations.html">Client Relations</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="marketing.html" class="dropdown-toggle">Marketing</a>
+                <div class="dropdown-menu">
+                    <a href="digital-marketing.html">Digital Marketing</a>
+                    <a href="content-strategy.html">Content Strategy</a>
+                    <a href="social-media.html">Social Media</a>
+                    <a href="brand-development.html">Brand Development</a>
+                    <a href="market-research.html">Market Research</a>
+                    <a href="analytics.html">Analytics & Reporting</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="personnel.html" class="dropdown-toggle active">Personnel</a>
+                <div class="dropdown-menu">
+                    <a href="recruitment.html">Recruitment</a>
+                    <a href="training.html">Training & Development</a>
+                    <a href="performance.html" class="active">Performance Management</a>
+                    <a href="culture.html">Culture & Engagement</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero personnel-hero">
+            <div class="hero-content">
+                <h1>Performance Management</h1>
+                <p>Drive excellence through effective performance strategies</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="service-content centered">
+                <h2>Performance Solutions</h2>
+                <p>Comprehensive performance management services:</p>
+                <ul>
+                    <li>Performance Review Systems</li>
+                    <li>Goal Setting & KPIs</li>
+                    <li>Feedback Mechanisms</li>
+                    <li>Career Development Planning</li>
+                    <li>Compensation Strategy</li>
+                    <li>Performance Analytics</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="features-showcase">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3>Goal Management</h3>
+                <p>Set and track meaningful objectives</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> SMART goals</li>
+                    <li><i class="fas fa-check"></i> OKR framework</li>
+                    <li><i class="fas fa-check"></i> Progress tracking</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h3>Feedback Systems</h3>
+                <p>Foster continuous improvement</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> 360° feedback</li>
+                    <li><i class="fas fa-check"></i> Regular check-ins</li>
+                    <li><i class="fas fa-check"></i> Performance reviews</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>Recognition & Rewards</h3>
+                <p>Motivate and retain talent</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Reward programs</li>
+                    <li><i class="fas fa-check"></i> Career paths</li>
+                    <li><i class="fas fa-check"></i> Development plans</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <h2>Performance Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Planning</h3>
+                    <p>Set goals and expectations</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Monitoring</h3>
+                    <p>Track progress and provide feedback</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Development</h3>
+                    <p>Support growth and improvement</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Review</h3>
+                    <p>Evaluate and reward performance</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="functional-section">
+            <div class="text-block">
+                <h3>Performance Goals</h3>
+                <textarea id="performance-goals" placeholder="Define your team's performance objectives..."></textarea>
+                <button onclick="saveText('performance-goals')" class="save-btn">Save</button>
+            </div>
+            <div class="text-block">
+                <h3>Review Criteria</h3>
+                <textarea id="review-criteria" placeholder="Outline your performance review criteria..."></textarea>
+                <button onclick="saveText('review-criteria')" class="save-btn">Save</button>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Enhance Performance?</h2>
+                <p>Let's develop a performance management strategy that drives results</p>
+                <button class="cta-button">Schedule Consultation</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

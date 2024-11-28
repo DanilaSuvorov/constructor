@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketing - Consulting Co.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Consulting Co.</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="finance.html" class="dropdown-toggle">Finance</a>
+                <div class="dropdown-menu">
+                    <a href="financial-planning.html">Financial Planning</a>
+                    <a href="investment-strategy.html">Investment Strategy</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="sales.html" class="dropdown-toggle">Sales</a>
+                <div class="dropdown-menu">
+                    <a href="sales-strategy.html">Sales Strategy</a>
+                    <a href="business-development.html">Business Development</a>
+                    <a href="client-relations.html">Client Relations</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="marketing.html" class="dropdown-toggle active">Marketing</a>
+                <div class="dropdown-menu">
+                    <a href="digital-marketing.html" class="active">Digital Marketing</a>
+                    <a href="content-strategy.html">Content Strategy</a>
+                    <a href="social-media.html">Social Media</a>
+                    <a href="brand-development.html">Brand Development</a>
+                    <a href="market-research.html">Market Research</a>
+                    <a href="analytics.html">Analytics & Reporting</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="personnel.html" class="dropdown-toggle">Personnel</a>
+                <div class="dropdown-menu">
+                    <a href="recruitment.html">Recruitment</a>
+                    <a href="training.html">Training & Development</a>
+                    <a href="performance.html">Performance Management</a>
+                    <a href="culture.html">Culture & Engagement</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero marketing-hero">
+            <div class="hero-content">
+                <h1>Digital Marketing</h1>
+                <p>Transform your online presence and drive digital growth</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="service-content centered">
+                <h2>Digital Marketing Solutions</h2>
+                <p>Comprehensive digital marketing services to boost your online presence:</p>
+                <ul>
+                    <li>Search Engine Optimization (SEO)</li>
+                    <li>Pay-Per-Click Advertising (PPC)</li>
+                    <li>Email Marketing Campaigns</li>
+                    <li>Content Marketing</li>
+                    <li>Digital Strategy Development</li>
+                    <li>Marketing Automation</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="features-showcase">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>SEO Excellence</h3>
+                <p>Optimize your online visibility and search rankings</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Keyword optimization</li>
+                    <li><i class="fas fa-check"></i> Technical SEO</li>
+                    <li><i class="fas fa-check"></i> Link building</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-ad"></i>
+                </div>
+                <h3>Paid Advertising</h3>
+                <p>Strategic PPC campaigns for maximum ROI</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Google Ads</li>
+                    <li><i class="fas fa-check"></i> Social media ads</li>
+                    <li><i class="fas fa-check"></i> Display advertising</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email Marketing</h3>
+                <p>Engage your audience with targeted campaigns</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Campaign strategy</li>
+                    <li><i class="fas fa-check"></i> List management</li>
+                    <li><i class="fas fa-check"></i> Performance tracking</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <h2>Digital Marketing Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Analysis</h3>
+                    <p>Assess current digital presence</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Strategy</h3>
+                    <p>Develop targeted digital plans</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Implementation</h3>
+                    <p>Execute marketing campaigns</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Optimization</h3>
+                    <p>Monitor and improve performance</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="functional-section">
+            <div class="text-block">
+                <h3>Campaign Goals</h3>
+                <textarea id="campaign-goals" placeholder="Define your digital marketing campaign objectives..."></textarea>
+                <button onclick="saveText('campaign-goals')" class="save-btn">Save</button>
+            </div>
+            <div class="text-block">
+                <h3>Target Audience</h3>
+                <textarea id="target-audience" placeholder="Describe your target audience and their digital behavior..."></textarea>
+                <button onclick="saveText('target-audience')" class="save-btn">Save</button>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Boost Your Digital Presence?</h2>
+                <p>Let's create a digital marketing strategy that drives results</p>
+                <button class="cta-button">Schedule Consultation</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

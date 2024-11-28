@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitment - Consulting Co.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Consulting Co.</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="finance.html" class="dropdown-toggle">Finance</a>
+                <div class="dropdown-menu">
+                    <a href="financial-planning.html">Financial Planning</a>
+                    <a href="investment-strategy.html">Investment Strategy</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="sales.html" class="dropdown-toggle">Sales</a>
+                <div class="dropdown-menu">
+                    <a href="sales-strategy.html">Sales Strategy</a>
+                    <a href="business-development.html">Business Development</a>
+                    <a href="client-relations.html">Client Relations</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="marketing.html" class="dropdown-toggle">Marketing</a>
+                <div class="dropdown-menu">
+                    <a href="digital-marketing.html">Digital Marketing</a>
+                    <a href="content-strategy.html">Content Strategy</a>
+                    <a href="social-media.html">Social Media</a>
+                    <a href="brand-development.html">Brand Development</a>
+                    <a href="market-research.html">Market Research</a>
+                    <a href="analytics.html">Analytics & Reporting</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="personnel.html" class="dropdown-toggle active">Personnel</a>
+                <div class="dropdown-menu">
+                    <a href="recruitment.html" class="active">Recruitment</a>
+                    <a href="training.html">Training & Development</a>
+                    <a href="performance.html">Performance Management</a>
+                    <a href="culture.html">Culture & Engagement</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero personnel-hero">
+            <div class="hero-content">
+                <h1>Recruitment</h1>
+                <p>Find and attract top talent for your organization</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="service-content centered">
+                <h2>Recruitment Solutions</h2>
+                <p>Comprehensive recruitment and talent acquisition services:</p>
+                <ul>
+                    <li>Talent Strategy Development</li>
+                    <li>Candidate Sourcing</li>
+                    <li>Screening & Assessment</li>
+                    <li>Interview Process Management</li>
+                    <li>Offer Negotiation</li>
+                    <li>Onboarding Support</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="features-showcase">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Talent Sourcing</h3>
+                <p>Find the perfect candidates for your roles</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Market mapping</li>
+                    <li><i class="fas fa-check"></i> Candidate pipeline</li>
+                    <li><i class="fas fa-check"></i> Network building</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <h3>Assessment</h3>
+                <p>Evaluate candidates effectively</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Skills assessment</li>
+                    <li><i class="fas fa-check"></i> Cultural fit</li>
+                    <li><i class="fas fa-check"></i> Reference checks</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Placement</h3>
+                <p>Secure top talent for your team</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Offer management</li>
+                    <li><i class="fas fa-check"></i> Negotiation support</li>
+                    <li><i class="fas fa-check"></i> Onboarding assistance</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <h2>Recruitment Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Strategy</h3>
+                    <p>Define recruitment needs and approach</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Sourcing</h3>
+                    <p>Find and attract candidates</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Selection</h3>
+                    <p>Evaluate and choose candidates</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Onboarding</h3>
+                    <p>Integrate new team members</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="functional-section">
+            <div class="text-block">
+                <h3>Job Requirements</h3>
+                <textarea id="job-requirements" placeholder="Define your job requirements and qualifications..."></textarea>
+                <button onclick="saveText('job-requirements')" class="save-btn">Save</button>
+            </div>
+            <div class="text-block">
+                <h3>Candidate Profile</h3>
+                <textarea id="candidate-profile" placeholder="Describe your ideal candidate profile..."></textarea>
+                <button onclick="saveText('candidate-profile')" class="save-btn">Save</button>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Build Your Dream Team?</h2>
+                <p>Let's develop a recruitment strategy that attracts top talent</p>
+                <button class="cta-button">Schedule Consultation</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

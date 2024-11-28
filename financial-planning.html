@@ -13,12 +13,10 @@
     <nav>
         <a href="index.html">Home</a>
         <div class="dropdown">
-            <a href="finance.html" class="active dropdown-toggle">Finance</a>
+            <a href="finance.html" class="dropdown-toggle">Finance</a>
             <div class="dropdown-menu">
                 <a href="financial-planning.html" class="active">Financial Planning</a>
-                <a href="risk-management.html">Risk Management</a>
                 <a href="investment-strategy.html">Investment Strategy</a>
-                <a href="tax-planning.html">Tax Planning</a>
             </div>
         </div>
         <a href="sales.html">Sales</a>
@@ -36,8 +34,8 @@
     </section>
 
     <section class="content-section">
-        <h2>Our Financial Planning Services</h2>
-        <div class="service-content">
+        <div class="service-content centered">
+            <h2>Our Financial Planning Services</h2>
             <p>We help businesses develop comprehensive financial strategies tailored to their objectives. Our expert team provides:</p>
             <ul>
                 <li>Long-term financial roadmaps</li>
@@ -47,6 +45,94 @@
                 <li>Investment planning</li>
                 <li>Financial risk assessment</li>
             </ul>
+        </div>
+    </section>
+
+    <section class="features-showcase">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Strategic Planning</h3>
+            <p>Develop comprehensive financial strategies aligned with your business goals</p>
+            <ul class="feature-list">
+                <li><i class="fas fa-check"></i> Business growth analysis</li>
+                <li><i class="fas fa-check"></i> Market opportunity assessment</li>
+                <li><i class="fas fa-check"></i> Competitive positioning</li>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-calculator"></i>
+            </div>
+            <h3>Budgeting & Forecasting</h3>
+            <p>Create detailed financial projections and budgeting plans</p>
+            <ul class="feature-list">
+                <li><i class="fas fa-check"></i> Revenue projections</li>
+                <li><i class="fas fa-check"></i> Cost analysis</li>
+                <li><i class="fas fa-check"></i> Cash flow management</li>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Risk Management</h3>
+            <p>Identify and mitigate financial risks to protect your business</p>
+            <ul class="feature-list">
+                <li><i class="fas fa-check"></i> Risk assessment</li>
+                <li><i class="fas fa-check"></i> Mitigation strategies</li>
+                <li><i class="fas fa-check"></i> Contingency planning</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <h2>Our Planning Process</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Initial Assessment</h3>
+                <p>Comprehensive review of your current financial position</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Strategy Development</h3>
+                <p>Creation of tailored financial planning solutions</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Implementation</h3>
+                <p>Execution of the agreed financial strategy</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Monitoring & Adjustment</h3>
+                <p>Continuous tracking and optimization of results</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="functional-section">
+        <div class="text-block">
+            <h3>Financial Goals</h3>
+            <textarea id="financial-goals" placeholder="Enter your financial goals here..."></textarea>
+            <button onclick="saveText('financial-goals')" class="save-btn">Save</button>
+        </div>
+        <div class="text-block">
+            <h3>Budget Planning</h3>
+            <textarea id="budget-planning" placeholder="Enter your budget details here..."></textarea>
+            <button onclick="saveText('budget-planning')" class="save-btn">Save</button>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Start Your Financial Journey?</h2>
+            <p>Let's create a comprehensive financial plan tailored to your business needs</p>
+            <button class="cta-button">Schedule Consultation</button>
         </div>
     </section>
 </main>

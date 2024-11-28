@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Strategy - Consulting Co.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Consulting Co.</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="finance.html" class="dropdown-toggle">Finance</a>
+                <div class="dropdown-menu">
+                    <a href="financial-planning.html">Financial Planning</a>
+                    <a href="investment-strategy.html">Investment Strategy</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="sales.html" class="dropdown-toggle">Sales</a>
+                <div class="dropdown-menu">
+                    <a href="sales-strategy.html">Sales Strategy</a>
+                    <a href="business-development.html">Business Development</a>
+                    <a href="client-relations.html">Client Relations</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="marketing.html" class="dropdown-toggle active">Marketing</a>
+                <div class="dropdown-menu">
+                    <a href="digital-marketing.html">Digital Marketing</a>
+                    <a href="content-strategy.html" class="active">Content Strategy</a>
+                    <a href="social-media.html">Social Media</a>
+                    <a href="brand-development.html">Brand Development</a>
+                    <a href="market-research.html">Market Research</a>
+                    <a href="analytics.html">Analytics & Reporting</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="personnel.html" class="dropdown-toggle">Personnel</a>
+                <div class="dropdown-menu">
+                    <a href="recruitment.html">Recruitment</a>
+                    <a href="training.html">Training & Development</a>
+                    <a href="performance.html">Performance Management</a>
+                    <a href="culture.html">Culture & Engagement</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero marketing-hero">
+            <div class="hero-content">
+                <h1>Content Strategy</h1>
+                <p>Create compelling content that engages and converts</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="service-content centered">
+                <h2>Content Strategy Solutions</h2>
+                <p>Develop and execute effective content strategies:</p>
+                <ul>
+                    <li>Content Planning & Creation</li>
+                    <li>Editorial Calendar Management</li>
+                    <li>Content Distribution</li>
+                    <li>Content Performance Analysis</li>
+                    <li>SEO Content Optimization</li>
+                    <li>Content Repurposing</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="features-showcase">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-pencil-alt"></i>
+                </div>
+                <h3>Content Creation</h3>
+                <p>Develop engaging content that resonates with your audience</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Blog posts & articles</li>
+                    <li><i class="fas fa-check"></i> Whitepapers & ebooks</li>
+                    <li><i class="fas fa-check"></i> Video & multimedia</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar"></i>
+                </div>
+                <h3>Content Planning</h3>
+                <p>Strategic content planning and scheduling</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Editorial calendars</li>
+                    <li><i class="fas fa-check"></i> Content mapping</li>
+                    <li><i class="fas fa-check"></i> Topic research</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Performance Analysis</h3>
+                <p>Track and optimize content performance</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Engagement metrics</li>
+                    <li><i class="fas fa-check"></i> ROI measurement</li>
+                    <li><i class="fas fa-check"></i> Content optimization</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <h2>Content Strategy Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Research</h3>
+                    <p>Analyze audience and competitors</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Planning</h3>
+                    <p>Develop content strategy and calendar</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Creation</h3>
+                    <p>Produce high-quality content</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Distribution</h3>
+                    <p>Share and promote content</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="functional-section">
+            <div class="text-block">
+                <h3>Content Ideas</h3>
+                <textarea id="content-ideas" placeholder="Document your content ideas and topics..."></textarea>
+                <button onclick="saveText('content-ideas')" class="save-btn">Save</button>
+            </div>
+            <div class="text-block">
+                <h3>Content Calendar</h3>
+                <textarea id="content-calendar" placeholder="Plan your content publication schedule..."></textarea>
+                <button onclick="saveText('content-calendar')" class="save-btn">Save</button>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Create Engaging Content?</h2>
+                <p>Let's develop a content strategy that connects with your audience</p>
+                <button class="cta-button">Schedule Consultation</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

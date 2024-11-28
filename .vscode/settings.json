@@ -1,0 +1,6 @@
+{
+    "css.trace.server": "messages",
+    "html.trace.server": "messages",
+    "json.trace.server": "messages",
+    "markdown.trace.server": "messages"
+}

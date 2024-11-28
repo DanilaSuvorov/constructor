@@ -119,3 +119,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate statistics
+    const stats = document.querySelectorAll('.stat-number');
+    stats.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const increment = target / 200;
+        
+        function updateCounter() {
+            const value = parseInt(stat.textContent);
+            if (value < target) {
+                stat.textContent = Math.ceil(value + increment);
+                setTimeout(updateCounter, 1);
+            } else {
+                stat.textContent = target;
+            }
+        }
+        
+        updateCounter();
+    });
+});
