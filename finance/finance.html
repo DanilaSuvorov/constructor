@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Services - Consulting Co.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Consulting Co.</div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <div class="dropdown">
+                <a href="finance.html" class="dropdown-toggle active">Finance</a>
+                <div class="dropdown-menu">
+                    <a href="financial-planning.html">Financial Planning</a>
+                    <a href="investment-strategy.html">Investment Strategy</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="../sales/sales.html" class="dropdown-toggle">Sales</a>
+                <div class="dropdown-menu">
+                    <a href="../sales/sales-strategy.html">Sales Strategy</a>
+                    <a href="../sales/business-development.html">Business Development</a>
+                    <a href="../sales/client-relations.html">Client Relations</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="../marketing/marketing.html" class="dropdown-toggle">Marketing</a>
+                <div class="dropdown-menu">
+                    <a href="../marketing/digital-marketing.html">Digital Marketing</a>
+                    <a href="../marketing/content-strategy.html">Content Strategy</a>
+                    <a href="../marketing/social-media.html">Social Media</a>
+                    <a href="../marketing/brand-development.html">Brand Development</a>
+                    <a href="../marketing/market-research.html">Market Research</a>
+                    <a href="../marketing/analytics.html">Analytics & Reporting</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="../personnel/personnel.html" class="dropdown-toggle">Personnel</a>
+                <div class="dropdown-menu">
+                    <a href="../personnel/recruitment.html">Recruitment</a>
+                    <a href="../personnel/training.html">Training & Development</a>
+                    <a href="../personnel/performance.html">Performance Management</a>
+                    <a href="../personnel/culture.html">Culture & Engagement</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero finance-hero">
+            <div class="hero-content">
+                <h1>Financial Excellence</h1>
+                <p>Strategic financial planning for sustainable growth</p>
+            </div>
+        </section>
+
+        <section class="finance-intro">
+            <h2>Financial Consulting</h2>
+            <p>Our finance consulting services empower businesses with actionable insights and strategies to drive sustainable growth. From cost optimization to advanced financial modeling, we are here to support every financial aspect of your journey.</p>
+            
+            <!-- Finance Services Grid -->
+            <div class="services-grid">
+                <a href="financial-planning.html" class="service-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Financial Planning</h3>
+                    <p>Comprehensive financial strategies tailored to your business objectives</p>
+                </a>
+                <a href="investment-strategy.html" class="service-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Investment Strategy</h3>
+                    <p>Strategic investment planning and portfolio management</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Finance Stats -->
+        <section class="stats-section">
+            <div class="stat-container">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="500">0</span>
+                    <span class="stat-label">Million in Managed Assets</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="95">0</span>
+                    <span class="stat-label">Client Satisfaction %</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="25">0</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Finance Input Blocks -->
+        <section class="finance-input-blocks">
+            <h2>Financial Strategy Planner</h2>
+            <p class="section-intro">Plan your financial future with our interactive strategy tool</p>
+
+            <div class="input-block">
+                <div class="block-header">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Business Goal</h3>
+                </div>
+                <p>Define the primary objective of your business to help us align our financial strategies accordingly.</p>
+                <input type="text" id="goal" placeholder="Enter your main business goal">
+                <button type="button" onclick="saveSingleField('goal')">Save</button>
+            </div>
+
+            <div class="input-block">
+                <div class="block-header">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Budget Range</h3>
+                </div>
+                <p>Provide an estimated budget range for us to better understand your financial boundaries.</p>
+                <div class="budget-range">
+                    <div class="range-item">
+                        <label>Minimum Budget</label>
+                        <input type="number" id="min-budget" min="0">
+                    </div>
+                    <div class="range-item">
+                        <label>Maximum Budget</label>
+                        <input type="number" id="max-budget" min="0">
+                    </div>
+                </div>
+                <button type="button" onclick="saveSingleField('budget')">Save Range</button>
+            </div>
+
+            <div class="input-block">
+                <div class="block-header">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Investment Preferences</h3>
+                </div>
+                <p>Select your preferred investment types and risk tolerance.</p>
+                <div class="investment-options">
+                    <div class="risk-tolerance">
+                        <label>Risk Tolerance</label>
+                        <select id="risk-level">
+                            <option value="conservative">Conservative</option>
+                            <option value="moderate">Moderate</option>
+                            <option value="aggressive">Aggressive</option>
+                        </select>
+                    </div>
+                    <div class="investment-types">
+                        <label>Investment Types</label>
+                        <div class="checkbox-grid">
+                            <label><input type="checkbox" name="investment" value="stocks"> Stocks</label>
+                            <label><input type="checkbox" name="investment" value="bonds"> Bonds</label>
+                            <label><input type="checkbox" name="investment" value="realestate"> Real Estate</label>
+                            <label><input type="checkbox" name="investment" value="crypto"> Cryptocurrency</label>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" onclick="saveSingleField('investment')">Save Preferences</button>
+            </div>
+        </section>
+
+        <!-- Case Studies -->
+        <section class="case-studies">
+            <h2>Success Stories</h2>
+            <div class="case-study-grid">
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Corporate Growth</h3>
+                    <p>Helped a mid-size company achieve 300% growth through strategic financial planning</p>
+                    <span class="results">300% Growth</span>
+                </div>
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Cost Optimization</h3>
+                    <p>Reduced operational costs by 40% while maintaining service quality</p>
+                    <span class="results">40% Cost Reduction</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

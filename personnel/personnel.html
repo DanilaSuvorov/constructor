@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personnel Services - Consulting Co.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Consulting Co.</div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <div class="dropdown">
+                <a href="../finance/finance.html" class="dropdown-toggle">Finance</a>
+                <div class="dropdown-menu">
+                    <a href="../finance/financial-planning.html">Financial Planning</a>
+                    <a href="../finance/investment-strategy.html">Investment Strategy</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="../sales/sales.html" class="dropdown-toggle">Sales</a>
+                <div class="dropdown-menu">
+                    <a href="../sales/sales-strategy.html">Sales Strategy</a>
+                    <a href="../sales/business-development.html">Business Development</a>
+                    <a href="../sales/client-relations.html">Client Relations</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="../marketing/marketing.html" class="dropdown-toggle">Marketing</a>
+                <div class="dropdown-menu">
+                    <a href="../marketing/digital-marketing.html">Digital Marketing</a>
+                    <a href="../marketing/content-strategy.html">Content Strategy</a>
+                    <a href="../marketing/social-media.html">Social Media</a>
+                    <a href="../marketing/brand-development.html">Brand Development</a>
+                    <a href="../marketing/market-research.html">Market Research</a>
+                    <a href="../marketing/analytics.html">Analytics & Reporting</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="personnel.html" class="dropdown-toggle active">Personnel</a>
+                <div class="dropdown-menu">
+                    <a href="recruitment.html">Recruitment</a>
+                    <a href="training.html">Training & Development</a>
+                    <a href="performance.html">Performance Management</a>
+                    <a href="culture.html">Culture & Engagement</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero personnel-hero">
+            <div class="hero-content">
+                <h1>Personnel Excellence</h1>
+                <p>Build and optimize your dream team</p>
+            </div>
+        </section>
+
+        <section class="personnel-intro">
+            <h2>Personnel Consulting</h2>
+            <p>Transform your organization with our expert personnel consulting services. We help businesses build, develop, and retain top talent while creating a positive and productive workplace culture.</p>
+            
+            <!-- Personnel Services Grid -->
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Talent Acquisition</h3>
+                    <p>Strategic recruitment and talent sourcing solutions</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Employee Development</h3>
+                    <p>Comprehensive training and development programs</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Performance Management</h3>
+                    <p>Effective systems for tracking and improving performance</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-heart"></i>
+                    <h3>Culture Building</h3>
+                    <p>Create and maintain a positive workplace culture</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personnel Stats -->
+        <section class="stats-section">
+            <div class="stat-container">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="5000">0</span>
+                    <span class="stat-label">Professionals Placed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="92">0</span>
+                    <span class="stat-label">Retention Rate %</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="45">0</span>
+                    <span class="stat-label">Time-to-Hire Reduction %</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personnel Input Blocks -->
+        <section class="personnel-input-blocks">
+            <h2>Personnel Strategy Planner</h2>
+            <p class="section-intro">Design your workforce strategy with our interactive planning tool</p>
+
+            <div class="input-block">
+                <div class="block-header">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Hiring Goals</h3>
+                </div>
+                <p>Define your primary hiring objectives and talent needs.</p>
+                <input type="text" id="hiring-goals" placeholder="Enter your main hiring goal">
+                <button type="button" onclick="saveSingleField('hiring-goals')">Save</button>
+            </div>
+
+            <div class="input-block">
+                <div class="block-header">
+                    <i class="fas fa-building"></i>
+                    <h3>Organization Structure</h3>
+                </div>
+                <p>Tell us about your organization's structure and needs.</p>
+                <div class="org-structure">
+                    <div class="structure-item">
+                        <label>Company Size</label>
+                        <select id="company-size">
+                            <option value="small">1-50 Employees</option>
+                            <option value="medium">51-200 Employees</option>
+                            <option value="large">201-1000 Employees</option>
+                            <option value="enterprise">1000+ Employees</option>
+                        </select>
+                    </div>
+                    <div class="structure-item">
+                        <label>Growth Stage</label>
+                        <select id="growth-stage">
+                            <option value="startup">Startup</option>
+                            <option value="growth">Growth</option>
+                            <option value="established">Established</option>
+                            <option value="enterprise">Enterprise</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" onclick="saveSingleField('org-structure')">Save Structure</button>
+            </div>
+
+            <div class="input-block">
+                <div class="block-header">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Development Areas</h3>
+                </div>
+                <p>Select key areas for employee development.</p>
+                <div class="channel-options">
+                    <label><input type="checkbox" name="development" value="leadership"> Leadership Training</label>
+                    <label><input type="checkbox" name="development" value="technical"> Technical Skills</label>
+                    <label><input type="checkbox" name="development" value="soft"> Soft Skills</label>
+                    <label><input type="checkbox" name="development" value="management"> Management Training</label>
+                </div>
+                <button type="button" onclick="saveSingleField('development-areas')">Save Areas</button>
+            </div>
+        </section>
+
+        <!-- Case Studies -->
+        <section class="case-studies">
+            <h2>Success Stories</h2>
+            <div class="case-study-grid">
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Team Transformation</h3>
+                    <p>Reduced turnover by 60% through culture optimization</p>
+                    <span class="results">60% Reduction</span>
+                </div>
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Rapid Scaling</h3>
+                    <p>Built high-performing team of 100+ in 6 months</p>
+                    <span class="results">100+ Hires</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -30,6 +30,7 @@ nav {
     display: flex;
     gap: 30px;
     align-items: center;
+    margin-right: 30px;
 }
 
 nav a,
@@ -52,23 +53,25 @@ nav a.active,
 .dropdown > a:hover,
 .dropdown > a.active {
     color: #0066cc;
+    text-decoration: none;
+    font-weight: normal;
 }
 
 .dropdown {
     position: relative;
+    margin: 0 12px;
 }
 
 .dropdown-menu {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: -20px;
     background-color: #ffffff;
     min-width: 200px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     border-radius: 4px;
     padding: 8px 0;
-    margin-top: 2px;
     z-index: 1000;
 }
 
@@ -1079,17 +1082,6 @@ nav a.active,
     }
 }
 
-/* Enhanced Animations */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.animate-on-scroll.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* Dropdown Menu */
 .dropdown {
     position: relative;
@@ -1136,7 +1128,7 @@ nav a.active,
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: -20px;
     background-color: #ffffff;
     min-width: 200px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -1156,11 +1148,13 @@ nav a.active,
 .dropdown-menu a:hover {
     background-color: #f8f9fa;
     color: #0066cc;
+    font-weight: normal;
 }
 
 .dropdown-menu a.active {
     color: #0066cc;
     background-color: #f8f9fa;
+    font-weight: normal;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -1349,6 +1343,7 @@ nav a.active::after {
 
 nav a:hover {
     color: #0066cc;
+    font-weight: normal;
 }
 
 .dropdown {
@@ -1382,7 +1377,7 @@ nav a:hover {
 .dropdown > a:hover,
 .dropdown > a.active {
     color: #0066cc;
-    font-weight: 600;
+    font-weight: normal;
 }
 
 .functional-section {

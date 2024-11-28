@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Services - Consulting Co.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Consulting Co.</div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <div class="dropdown">
+                <a href="../finance/finance.html" class="dropdown-toggle">Finance</a>
+                <div class="dropdown-menu">
+                    <a href="../finance/financial-planning.html">Financial Planning</a>
+                    <a href="../finance/investment-strategy.html">Investment Strategy</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="../sales/sales.html" class="dropdown-toggle">Sales</a>
+                <div class="dropdown-menu">
+                    <a href="../sales/sales-strategy.html">Sales Strategy</a>
+                    <a href="../sales/business-development.html">Business Development</a>
+                    <a href="../sales/client-relations.html">Client Relations</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="marketing.html" class="dropdown-toggle active">Marketing</a>
+                <div class="dropdown-menu">
+                    <a href="digital-marketing.html">Digital Marketing</a>
+                    <a href="content-strategy.html">Content Strategy</a>
+                    <a href="social-media.html">Social Media</a>
+                    <a href="brand-development.html">Brand Development</a>
+                    <a href="market-research.html">Market Research</a>
+                    <a href="analytics.html">Analytics & Reporting</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="../personnel/personnel.html" class="dropdown-toggle">Personnel</a>
+                <div class="dropdown-menu">
+                    <a href="../personnel/recruitment.html">Recruitment</a>
+                    <a href="../personnel/training.html">Training & Development</a>
+                    <a href="../personnel/performance.html">Performance Management</a>
+                    <a href="../personnel/culture.html">Culture & Engagement</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero marketing-hero">
+            <div class="hero-content">
+                <h1>Marketing Excellence</h1>
+                <p>Transform your brand with data-driven marketing strategies</p>
+            </div>
+        </section>
+
+        <section class="marketing-intro">
+            <h2>Marketing Consulting</h2>
+            <p>Our marketing consulting services empower businesses with actionable insights and strategies to drive sustainable growth. From brand development to digital campaigns, we are here to support every marketing aspect of your journey.</p>
+            
+            <!-- Marketing Services Grid -->
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Strategy Development</h3>
+                    <p>Custom marketing strategies aligned with your business goals</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Market Analysis</h3>
+                    <p>In-depth market research and competitor analysis</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-megaphone"></i>
+                    <h3>Brand Building</h3>
+                    <p>Create and strengthen your brand identity</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-globe"></i>
+                    <h3>Digital Marketing</h3>
+                    <p>Comprehensive digital marketing solutions</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marketing Stats -->
+        <section class="stats-section">
+            <div class="stat-container">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="300">0</span>
+                    <span class="stat-label">Successful Campaigns</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="85">0</span>
+                    <span class="stat-label">Client Retention %</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="150">0</span>
+                    <span class="stat-label">ROI Increase %</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marketing Input Blocks -->
+        <section class="marketing-input-blocks">
+            <h2>Marketing Strategy Planner</h2>
+            <p class="section-intro">Design your custom marketing strategy with our interactive planning tool</p>
+
+            <div class="input-block">
+                <div class="block-header">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Campaign Goals</h3>
+                </div>
+                <p>Define your primary marketing objectives to help us create a targeted strategy.</p>
+                <input type="text" id="campaign-goals" placeholder="Enter your main campaign goal">
+                <button type="button" onclick="saveSingleField('campaign-goals')">Save</button>
+            </div>
+
+            <div class="input-block">
+                <div class="block-header">
+                    <i class="fas fa-users"></i>
+                    <h3>Target Audience</h3>
+                </div>
+                <p>Tell us about your ideal customer profile and target demographics.</p>
+                <div class="audience-structure">
+                    <div class="structure-item">
+                        <label>Primary Age Group</label>
+                        <select id="age-group">
+                            <option value="18-24">18-24</option>
+                            <option value="25-34">25-34</option>
+                            <option value="35-44">35-44</option>
+                            <option value="45+">45+</option>
+                        </select>
+                    </div>
+                    <div class="structure-item">
+                        <label>Market Type</label>
+                        <select id="market-type">
+                            <option value="b2c">B2C</option>
+                            <option value="b2b">B2B</option>
+                            <option value="both">Both</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" onclick="saveSingleField('target-audience')">Save Profile</button>
+            </div>
+
+            <div class="input-block">
+                <div class="block-header">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Marketing Channels</h3>
+                </div>
+                <p>Select your preferred marketing channels.</p>
+                <div class="channel-options">
+                    <label><input type="checkbox" name="channel" value="social"> Social Media</label>
+                    <label><input type="checkbox" name="channel" value="email"> Email Marketing</label>
+                    <label><input type="checkbox" name="channel" value="content"> Content Marketing</label>
+                    <label><input type="checkbox" name="channel" value="ppc"> PPC Advertising</label>
+                </div>
+                <button type="button" onclick="saveSingleField('marketing-channels')">Save Channels</button>
+            </div>
+        </section>
+
+        <!-- Case Studies -->
+        <section class="case-studies">
+            <h2>Success Stories</h2>
+            <div class="case-study-grid">
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Digital Transformation</h3>
+                    <p>Increased online presence by 400% for a retail client</p>
+                    <span class="results">400% Growth</span>
+                </div>
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Brand Revival</h3>
+                    <p>Revitalized brand identity leading to 250% engagement increase</p>
+                    <span class="results">250% Engagement</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
