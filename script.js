@@ -99,3 +99,25 @@ function updateCounter() {
         counterElement.textContent = visitCount;
     }
 }
+
+// Функция для обновления дашборда Superset
+function refreshSupersetDashboard() {
+    const frame = document.querySelector('.superset-frame');
+    if (frame) {
+        frame.src = frame.src;
+    }
+}
+
+// Добавляем обработчик для кнопки обновления
+document.addEventListener('DOMContentLoaded', function() {
+    const refreshBtn = document.getElementById('refreshDashboard');
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', refreshSupersetDashboard);
+    }
+});
+
+// Обработка ошибок загрузки iframe
+document.querySelector('.superset-frame')?.addEventListener('error', function() {
+    this.style.display = 'none';
+    this.parentElement.innerHTML = '<div class="error-message">Ошибка загрузки дашборда. Пожалуйста, проверьте подключение или обратитесь к администратору.</div>';
+});
