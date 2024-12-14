@@ -121,3 +121,59 @@ document.querySelector('.superset-frame')?.addEventListener('error', function() 
     this.style.display = 'none';
     this.parentElement.innerHTML = '<div class="error-message">Ошибка загрузки дашборда. Пожалуйста, проверьте подключение или обратитесь к администратору.</div>';
 });
+
+// Функция для загрузки дашборда Superset
+function loadSupersetDashboard() {
+    const containerElement = document.getElementById('superset-container');
+    const dashboardId = '2'; // Ваш ID дашборда
+    
+    const iframe = document.createElement('iframe');
+    iframe.src = `http://localhost:3000/superset/dashboard/${dashboardId}/?standalone=true&show_filters=0&show_title=0&embed=true`;
+    iframe.style.width = '100%';
+    iframe.style.height = '800px';
+    iframe.style.border = 'none';
+    iframe.setAttribute('allowfullscreen', 'true');
+    iframe.setAttribute('allow', 'same-origin');
+    
+    containerElement.innerHTML = '';
+    containerElement.appendChild(iframe);
+}
+
+// Загружаем дашборд при загрузке страницы
+document.addEventListener('DOMContentLoaded', loadSupersetDashboard);
+
+// Обработчик для кнопки обновления
+document.getElementById('refreshDashboard')?.addEventListener('click', loadSupersetDashboard);
+
+// Функция обработки загрузки файла
+async function handleFileUpload(input) {
+    const file = input.files[0];
+    const uploadStatus = document.getElementById('uploadStatus');
+    
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+        uploadStatus.innerHTML = '<div class="loading">Загрузка файла...</div>';
+        
+        // Отправляем файл на сервер
+        const response = await fetch('http://localhost:8088/api/v1/excel/upload', {
+            method: 'POST',
+            body: formData,
+            credentials: 'include'
+        });
+
+        if (!response.ok) throw new Error('Ошибка загрузки');
+
+        const result = await response.json();
+        uploadStatus.innerHTML = '<div class="success">Файл успешно агружен</div>';
+        
+        // Обновляем дашборд
+        loadSupersetDashboard();
+    } catch (error) {
+        console.error('Upload error:', error);
+        uploadStatus.innerHTML = '<div class="error">Ошибка загрузки файла</div>';
+    }
+}
