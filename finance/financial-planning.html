@@ -6,6 +6,12 @@
     <title>Financial Planning - Consulting Company</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.29.3/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.3/dist/xlsx.min.js"></script>
+    <script src="charts.js"></script>
+    <script src="excel-processor.js"></script>
 </head>
 <body>
 <header>
@@ -121,7 +127,35 @@
             </ul>
         </div>
     </section>
+    <!-- Chart Section -->
+    <section class="chart-section">
+        <div class="chart-container">
+            <h2>Financial Performance Visualization</h2>
+            <div class="chart-controls">
+                <button id="generateChart" class="chart-button">Generate Chart</button>
+                <div class="file-upload">
+                    <label for="excelFileInput" class="file-upload-label">Upload Excel Data</label>
+                    <input type="file" id="excelFileInput" accept=".xlsx, .xls">
+                </div>
+            </div>
+            <div class="canvas-container">
+                <canvas id="financialChart"></canvas>
+            </div>
+        </div>
+    </section>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('generateChart').addEventListener('click', function() {
+            // Generate random data for demonstration
+            const newData = dataArr.map(item => ({
+                ...item,
+                value: Math.floor(Math.random() * 5000) + 1000
+            }));
+            updateChart(newData);
+        });
+    });
+    </script>
     <section class="process-section">
         <h2>Our Planning Process</h2>
         <div class="process-steps">
@@ -169,7 +203,6 @@
         </div>
     </section>
 </main>
-
-<script src="script.js"></script>
 </body>
 </html>
+
