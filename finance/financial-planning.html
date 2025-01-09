@@ -6,6 +6,59 @@
     <title>Финансовое планирование - Consulting Co.</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
+    <style>
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .service-purpose, .service-content, .empty-block {
+            background: #ffffff;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .service-purpose h2, .service-content h2 {
+            color: #0066cc;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #0066cc;
+        }
+        .service-purpose p, .service-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+        }
+        .service-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        .service-content ul li {
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            position: relative;
+        }
+        .service-content ul li::before {
+            content: '•';
+            color: #0066cc;
+            position: absolute;
+            left: 10px;
+            font-size: 1.5em;
+        }
+        .empty-block {
+            min-height: 200px;
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -66,59 +119,30 @@
             </div>
         </section>
 
-        <section class="service-details">
-            <h2>Наши услуги по финансовому планированию</h2>
-            
-            <div class="service-grid">
-                <div class="service-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Бюджетирование</h3>
-                    <p>Разработка и управление бюджетом</p>
-                </div>
+        <div class="content-wrapper">
+            <section class="service-purpose">
+                <h2>Назначение услуги</h2>
+                <p>Финансовое планирование - это фундаментальный процесс, направленный на достижение финансовых целей организации через систематический анализ и структурирование финансовых ресурсов. Наша услуга помогает компаниям разработать четкую финансовую стратегию, оптимизировать денежные потоки и обеспечить стабильный рост.</p>
+            </section>
 
-                <div class="service-card">
-                    <i class="fas fa-coins"></i>
-                    <h3>Управление капиталом</h3>
-                    <p>Оптимизация структуры капитала</p>
-                </div>
+            <section class="service-content">
+                <h2>Содержание услуги</h2>
+                <p>В рамках финансового планирования мы предоставляем:</p>
+                <ul>
+                    <li>Разработку комплексного финансового плана</li>
+                    <li>Бюджетирование и контроль расходов</li>
+                    <li>Оптимизацию структуры капитала</li>
+                    <li>Управление денежными потоками</li>
+                    <li>Анализ финансовых рисков</li>
+                    <li>Прогнозирование финансовых показателей</li>
+                    <li>Разработку инвестиционной стратегии</li>
+                </ul>
+            </section>
 
-                <div class="service-card">
-                    <i class="fas fa-calculator"></i>
-                    <h3>Финансовый анализ</h3>
-                    <p>Комплексный анализ финансовых показателей</p>
-                </div>
-
-                <div class="service-card">
-                    <i class="fas fa-balance-scale"></i>
-                    <h3>Риск-менеджмент</h3>
-                    <p>Управление финансовыми рисками</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="case-studies">
-            <h2>Истории успеха</h2>
-            <div class="case-study-grid">
-                <div class="case-study-card">
-                    <img src="../images/case-study-1.jpg" alt="Кейс 1">
-                    <h3>Производственная компания</h3>
-                    <p>Оптимизация бюджета привела к росту прибыли на 40%</p>
-                </div>
-                <div class="case-study-card">
-                    <img src="../images/case-study-2.jpg" alt="Кейс 2">
-                    <h3>Стартап</h3>
-                    <p>Эффективное планирование помогло привлечь инвестиции</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <div class="cta-content">
-                <h2>Готовы улучшить ваше финансовое планирование?</h2>
-                <p>Давайте обсудим вашу стратегию</p>
-                <button class="cta-button">Получить консультацию</button>
-            </div>
-        </section>
+            <section class="empty-block">
+                <!-- Пустой блок для будущего контента -->
+            </section>
+        </div>
     </main>
 
     <footer>
