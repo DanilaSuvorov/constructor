@@ -1183,20 +1183,8 @@ nav a.active,
     overflow: hidden;
 }
 
-.finance-hero {
+.finance-hero, .sales-hero, .marketing-hero, .personnel-hero {
     background: linear-gradient(135deg, #0066cc, #3399ff);
-}
-
-.sales-hero {
-    background: linear-gradient(135deg, #cc6600, #ff9933);
-}
-
-.marketing-hero {
-    background: linear-gradient(135deg, #00cc66, #33ff99);
-}
-
-.personnel-hero {
-    background: linear-gradient(135deg, #6600cc, #9933ff);
 }
 
 .hero-content {
@@ -2280,20 +2268,8 @@ nav a.active,
     overflow: hidden;
 }
 
-.finance-hero {
+.finance-hero, .sales-hero, .marketing-hero, .personnel-hero {
     background: linear-gradient(135deg, #0066cc, #3399ff);
-}
-
-.sales-hero {
-    background: linear-gradient(135deg, #cc6600, #ff9933);
-}
-
-.marketing-hero {
-    background: linear-gradient(135deg, #00cc66, #33ff99);
-}
-
-.personnel-hero {
-    background: linear-gradient(135deg, #6600cc, #9933ff);
 }
 
 .hero-content {
@@ -3315,20 +3291,8 @@ nav a.active,
     overflow: hidden;
 }
 
-.finance-hero {
+.finance-hero, .sales-hero, .marketing-hero, .personnel-hero {
     background: linear-gradient(135deg, #0066cc, #3399ff);
-}
-
-.sales-hero {
-    background: linear-gradient(135deg, #cc6600, #ff9933);
-}
-
-.marketing-hero {
-    background: linear-gradient(135deg, #00cc66, #33ff99);
-}
-
-.personnel-hero {
-    background: linear-gradient(135deg, #6600cc, #9933ff);
 }
 
 .hero-content {
