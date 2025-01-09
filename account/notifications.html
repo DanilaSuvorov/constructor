@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - Consulting Co.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="Consulting Co. Logo">
+                </a>
+            </div>
+            <nav>
+                <a href="../index.html">Home</a>
+                <div class="dropdown">
+                    <a href="../finance/finance.html" class="dropdown-toggle">Finance</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="../finance/financial-planning.html">Financial Planning</a></li>
+                            <li><a href="../finance/investment-strategy.html">Investment Strategy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="../sales/sales.html" class="dropdown-toggle">Sales</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="../sales/sales-strategy.html">Sales Strategy</a></li>
+                            <li><a href="../sales/business-development.html">Business Development</a></li>
+                            <li><a href="../sales/client-relations.html">Client Relations</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="../marketing/marketing.html" class="dropdown-toggle">Marketing</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="../marketing/digital-marketing.html">Digital Marketing</a></li>
+                            <li><a href="../marketing/content-strategy.html">Content Strategy</a></li>
+                            <li><a href="../marketing/social-media.html">Social Media</a></li>
+                            <li><a href="../marketing/brand-development.html">Brand Development</a></li>
+                            <li><a href="../marketing/market-research.html">Market Research</a></li>
+                            <li><a href="../marketing/analytics.html">Analytics & Reporting</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="../personnel/personnel.html" class="dropdown-toggle">Personnel</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="../personnel/recruitment.html">Recruitment</a></li>
+                            <li><a href="../personnel/training.html">Training & Development</a></li>
+                            <li><a href="../personnel/performance.html">Performance Management</a></li>
+                            <li><a href="../personnel/culture.html">Culture & Engagement</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="dashboard.html" class="active"><span id="userName">Account</span></a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="profile.html">Profile Settings</a></li>
+                            <li><a href="notifications.html">Notifications</a></li>
+                            <li><a href="#" onclick="handleLogout()">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Notifications</h1>
+        </div>
+        
+        <div class="dashboard-grid">
+            <div class="dashboard-card notifications-settings">
+                <h3>Notification Preferences</h3>
+                <form id="notificationPreferences" onsubmit="return handleNotificationPreferences(event)">
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="emailNotifications" name="emailNotifications" checked>
+                            Email Notifications
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="consultationReminders" name="consultationReminders" checked>
+                            Consultation Reminders
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="marketingUpdates" name="marketingUpdates" checked>
+                            Marketing Updates
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="newsAndPromotions" name="newsAndPromotions" checked>
+                            News and Promotions
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn-primary">Save Preferences</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="dashboard-card">
+                <h3>Recent Notifications</h3>
+                <div id="notificationsList" class="notifications-list">
+                    <!-- Notifications will be dynamically populated here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/notifications.js"></script>
+</body>
+</html>
