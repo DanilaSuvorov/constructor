@@ -1,3 +1,0 @@
-apache-superset==2.1.0
-sqlalchemy>=1.4.0
-pandas>=1.4.0

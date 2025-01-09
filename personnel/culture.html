@@ -1,11 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Culture & Engagement - Consulting Co.</title>
+    <title>Финансовое планирование - Consulting Co.</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
+    <style>
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .service-purpose, .service-content, .empty-block {
+            background: #ffffff;
+            border-radius: 20px;
+            margin: 0 0 40px 0;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .service-purpose h2, .service-content h2 {
+            color: #0066cc;
+            font-size: 2rem;
+            margin: 0 0 25px 0;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #0066cc;
+        }
+        .service-purpose p, .service-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin: 0;
+        }
+        .service-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0 0;
+        }
+        .service-content ul li {
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            position: relative;
+        }
+        .service-content ul li::before {
+            content: '•';
+            color: #0066cc;
+            position: absolute;
+            left: 10px;
+            font-size: 1.5em;
+        }
+        .empty-block {
+            min-height: 200px;
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -59,117 +115,63 @@
     </header>
 
     <main>
-        <section class="page-hero personnel-hero">
+        <section class="page-hero finance-hero">
             <div class="hero-content">
-                <h1>Culture & Engagement</h1>
-                <p>Build a thriving workplace culture that drives success</p>
+                <h1>Финансовое планирование</h1>
+                <p>Стратегическое планирование для устойчивого финансового роста</p>
             </div>
         </section>
 
-        <section class="content-section">
-            <div class="service-content centered">
-                <h2>Culture Solutions</h2>
-                <p>Comprehensive culture and engagement services:</p>
+        <div class="content-wrapper">
+            <section class="service-purpose">
+                <h2>Назначение услуги</h2>
+                <p>Финансовое планирование - это фундаментальный процесс, направленный на достижение финансовых целей организации через систематический анализ и структурирование финансовых ресурсов. Наша услуга помогает компаниям разработать четкую финансовую стратегию, оптимизировать денежные потоки и обеспечить стабильный рост.</p>
+            </section>
+
+            <section class="service-content">
+                <h2>Содержание услуги</h2>
+                <p>В рамках финансового планирования мы предоставляем:</p>
                 <ul>
-                    <li>Culture Assessment & Design</li>
-                    <li>Employee Engagement Programs</li>
-                    <li>Values & Mission Development</li>
-                    <li>Team Building Initiatives</li>
-                    <li>Workplace Wellness Programs</li>
-                    <li>Diversity & Inclusion Strategy</li>
+                    <li>Разработку комплексного финансового плана</li>
+                    <li>Бюджетирование и контроль расходов</li>
+                    <li>Оптимизацию структуры капитала</li>
+                    <li>Управление денежными потоками</li>
+                    <li>Анализ финансовых рисков</li>
+                    <li>Прогнозирование финансовых показателей</li>
+                    <li>Разработку инвестиционной стратегии</li>
                 </ul>
-            </div>
-        </section>
+            </section>
 
-        <section class="features-showcase">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-heart"></i>
-                </div>
-                <h3>Culture Building</h3>
-                <p>Create a positive workplace environment</p>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> Values alignment</li>
-                    <li><i class="fas fa-check"></i> Culture mapping</li>
-                    <li><i class="fas fa-check"></i> Change management</li>
-                </ul>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <h3>Employee Engagement</h3>
-                <p>Foster team connection and commitment</p>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> Engagement surveys</li>
-                    <li><i class="fas fa-check"></i> Team activities</li>
-                    <li><i class="fas fa-check"></i> Recognition programs</li>
-                </ul>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-balance-scale"></i>
-                </div>
-                <h3>Workplace Wellness</h3>
-                <p>Support employee well-being</p>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> Health programs</li>
-                    <li><i class="fas fa-check"></i> Work-life balance</li>
-                    <li><i class="fas fa-check"></i> Mental health support</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="process-section">
-            <h2>Culture Development Process</h2>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Assessment</h3>
-                    <p>Evaluate current culture</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Design</h3>
-                    <p>Create culture strategy</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Implementation</h3>
-                    <p>Execute culture initiatives</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Measurement</h3>
-                    <p>Track culture impact</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="functional-section">
-            <div class="text-block">
-                <h3>Culture Vision</h3>
-                <textarea id="culture-vision" placeholder="Define your ideal workplace culture..."></textarea>
-                <button onclick="saveText('culture-vision')" class="save-btn">Save</button>
-            </div>
-            <div class="text-block">
-                <h3>Engagement Goals</h3>
-                <textarea id="engagement-goals" placeholder="Outline your employee engagement objectives..."></textarea>
-                <button onclick="saveText('engagement-goals')" class="save-btn">Save</button>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <div class="cta-content">
-                <h2>Ready to Transform Your Culture?</h2>
-                <p>Let's create an engaging workplace that inspires success</p>
-                <button class="cta-button">Schedule Consultation</button>
-            </div>
-        </section>
+            <section class="empty-block">
+                <!-- Пустой блок для будущего контента -->
+            </section>
+        </div>
     </main>
 
-    <script src="script.js"></script>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Свяжитесь с нами</h3>
+                <p>Email: info@consultingco.com</p>
+                <p>Телефон: (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Следите за нами</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Расположение</h3>
+                <p>123 Business Street</p>
+                <p>Silicon Valley, CA 94025</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Consulting Co. Все права защищены.</p>
+        </div>
+    </footer>
 </body>
 </html>

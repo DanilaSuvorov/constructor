@@ -1,11 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Performance Management - Consulting Co.</title>
+    <title>Финансовое планирование - Consulting Co.</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
+    <style>
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .service-purpose, .service-content, .empty-block {
+            background: #ffffff;
+            border-radius: 20px;
+            margin: 0 0 40px 0;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .service-purpose h2, .service-content h2 {
+            color: #0066cc;
+            font-size: 2rem;
+            margin: 0 0 25px 0;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #0066cc;
+        }
+        .service-purpose p, .service-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin: 0;
+        }
+        .service-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0 0;
+        }
+        .service-content ul li {
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            position: relative;
+        }
+        .service-content ul li::before {
+            content: '•';
+            color: #0066cc;
+            position: absolute;
+            left: 10px;
+            font-size: 1.5em;
+        }
+        .empty-block {
+            min-height: 200px;
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -59,117 +115,63 @@
     </header>
 
     <main>
-        <section class="page-hero personnel-hero">
+        <section class="page-hero finance-hero">
             <div class="hero-content">
-                <h1>Performance Management</h1>
-                <p>Drive excellence through effective performance strategies</p>
+                <h1>Финансовое планирование</h1>
+                <p>Стратегическое планирование для устойчивого финансового роста</p>
             </div>
         </section>
 
-        <section class="content-section">
-            <div class="service-content centered">
-                <h2>Performance Solutions</h2>
-                <p>Comprehensive performance management services:</p>
+        <div class="content-wrapper">
+            <section class="service-purpose">
+                <h2>Назначение услуги</h2>
+                <p>Финансовое планирование - это фундаментальный процесс, направленный на достижение финансовых целей организации через систематический анализ и структурирование финансовых ресурсов. Наша услуга помогает компаниям разработать четкую финансовую стратегию, оптимизировать денежные потоки и обеспечить стабильный рост.</p>
+            </section>
+
+            <section class="service-content">
+                <h2>Содержание услуги</h2>
+                <p>В рамках финансового планирования мы предоставляем:</p>
                 <ul>
-                    <li>Performance Review Systems</li>
-                    <li>Goal Setting & KPIs</li>
-                    <li>Feedback Mechanisms</li>
-                    <li>Career Development Planning</li>
-                    <li>Compensation Strategy</li>
-                    <li>Performance Analytics</li>
+                    <li>Разработку комплексного финансового плана</li>
+                    <li>Бюджетирование и контроль расходов</li>
+                    <li>Оптимизацию структуры капитала</li>
+                    <li>Управление денежными потоками</li>
+                    <li>Анализ финансовых рисков</li>
+                    <li>Прогнозирование финансовых показателей</li>
+                    <li>Разработку инвестиционной стратегии</li>
                 </ul>
-            </div>
-        </section>
+            </section>
 
-        <section class="features-showcase">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-tasks"></i>
-                </div>
-                <h3>Goal Management</h3>
-                <p>Set and track meaningful objectives</p>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> SMART goals</li>
-                    <li><i class="fas fa-check"></i> OKR framework</li>
-                    <li><i class="fas fa-check"></i> Progress tracking</li>
-                </ul>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-comments"></i>
-                </div>
-                <h3>Feedback Systems</h3>
-                <p>Foster continuous improvement</p>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> 360° feedback</li>
-                    <li><i class="fas fa-check"></i> Regular check-ins</li>
-                    <li><i class="fas fa-check"></i> Performance reviews</li>
-                </ul>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-award"></i>
-                </div>
-                <h3>Recognition & Rewards</h3>
-                <p>Motivate and retain talent</p>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> Reward programs</li>
-                    <li><i class="fas fa-check"></i> Career paths</li>
-                    <li><i class="fas fa-check"></i> Development plans</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="process-section">
-            <h2>Performance Process</h2>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Planning</h3>
-                    <p>Set goals and expectations</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Monitoring</h3>
-                    <p>Track progress and provide feedback</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Development</h3>
-                    <p>Support growth and improvement</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Review</h3>
-                    <p>Evaluate and reward performance</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="functional-section">
-            <div class="text-block">
-                <h3>Performance Goals</h3>
-                <textarea id="performance-goals" placeholder="Define your team's performance objectives..."></textarea>
-                <button onclick="saveText('performance-goals')" class="save-btn">Save</button>
-            </div>
-            <div class="text-block">
-                <h3>Review Criteria</h3>
-                <textarea id="review-criteria" placeholder="Outline your performance review criteria..."></textarea>
-                <button onclick="saveText('review-criteria')" class="save-btn">Save</button>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <div class="cta-content">
-                <h2>Ready to Enhance Performance?</h2>
-                <p>Let's develop a performance management strategy that drives results</p>
-                <button class="cta-button">Schedule Consultation</button>
-            </div>
-        </section>
+            <section class="empty-block">
+                <!-- Пустой блок для будущего контента -->
+            </section>
+        </div>
     </main>
 
-    <script src="script.js"></script>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Свяжитесь с нами</h3>
+                <p>Email: info@consultingco.com</p>
+                <p>Телефон: (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Следите за нами</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Расположение</h3>
+                <p>123 Business Street</p>
+                <p>Silicon Valley, CA 94025</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Consulting Co. Все права защищены.</p>
+        </div>
+    </footer>
 </body>
 </html>

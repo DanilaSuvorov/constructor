@@ -3,9 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контент-стратегия - Consulting Co.</title>
+    <title>Финансовое планирование - Consulting Co.</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
+    <style>
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .service-purpose, .service-content, .empty-block {
+            background: #ffffff;
+            border-radius: 20px;
+            margin: 0 0 40px 0;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .service-purpose h2, .service-content h2 {
+            color: #0066cc;
+            font-size: 2rem;
+            margin: 0 0 25px 0;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #0066cc;
+        }
+        .service-purpose p, .service-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin: 0;
+        }
+        .service-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0 0;
+        }
+        .service-content ul li {
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            position: relative;
+        }
+        .service-content ul li::before {
+            content: '•';
+            color: #0066cc;
+            position: absolute;
+            left: 10px;
+            font-size: 1.5em;
+        }
+        .empty-block {
+            min-height: 200px;
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -59,118 +115,37 @@
     </header>
 
     <main>
-        <section class="page-hero content-strategy-hero">
+        <section class="page-hero finance-hero">
             <div class="hero-content">
-                <h1>Контент-стратегия</h1>
-                <p>Создавайте контент, который привлекает и удерживает вашу аудиторию</p>
+                <h1>Финансовое планирование</h1>
+                <p>Стратегическое планирование для устойчивого финансового роста</p>
             </div>
         </section>
 
-        <section class="service-details">
-            <h2>Наши услуги по разработке контент-стратегии</h2>
-            
-            <div class="service-grid">
-                <div class="service-card">
-                    <i class="fas fa-pencil-alt"></i>
-                    <h3>Создание контента</h3>
-                    <p>Профессиональное создание контента для всех каналов</p>
-                </div>
+        <div class="content-wrapper">
+            <section class="service-purpose">
+                <h2>Назначение услуги</h2>
+                <p>Финансовое планирование - это фундаментальный процесс, направленный на достижение финансовых целей организации через систематический анализ и структурирование финансовых ресурсов. Наша услуга помогает компаниям разработать четкую финансовую стратегию, оптимизировать денежные потоки и обеспечить стабильный рост.</p>
+            </section>
 
-                <div class="service-card">
-                    <i class="fas fa-bullseye"></i>
-                    <h3>Стратегическое планирование</h3>
-                    <p>Разработка эффективных контент-планов</p>
-                </div>
+            <section class="service-content">
+                <h2>Содержание услуги</h2>
+                <p>В рамках финансового планирования мы предоставляем:</p>
+                <ul>
+                    <li>Разработку комплексного финансового плана</li>
+                    <li>Бюджетирование и контроль расходов</li>
+                    <li>Оптимизацию структуры капитала</li>
+                    <li>Управление денежными потоками</li>
+                    <li>Анализ финансовых рисков</li>
+                    <li>Прогнозирование финансовых показателей</li>
+                    <li>Разработку инвестиционной стратегии</li>
+                </ul>
+            </section>
 
-                <div class="service-card">
-                    <i class="fas fa-chart-pie"></i>
-                    <h3>Анализ эффективности</h3>
-                    <p>Отслеживание и оптимизация результатов</p>
-                </div>
-
-                <div class="service-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Вовлечение аудитории</h3>
-                    <p>Создание контента, который резонирует с целевой аудиторией</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="content-types">
-            <h2>Типы контента</h2>
-            <div class="content-grid">
-                <div class="content-type">
-                    <i class="fas fa-file-alt"></i>
-                    <h3>Блог-посты</h3>
-                    <p>Информативные статьи для вашего блога</p>
-                </div>
-                <div class="content-type">
-                    <i class="fas fa-video"></i>
-                    <h3>Видео-контент</h3>
-                    <p>Привлекательный видеоконтент</p>
-                </div>
-                <div class="content-type">
-                    <i class="fas fa-image"></i>
-                    <h3>Инфографика</h3>
-                    <p>Визуализация данных и информации</p>
-                </div>
-                <div class="content-type">
-                    <i class="fas fa-podcast"></i>
-                    <h3>Подкасты</h3>
-                    <p>Аудиоконтент для вашей аудитории</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="process-section">
-            <h2>Процесс разработки контент-стратегии</h2>
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Аудит</h3>
-                    <p>Анализ существующего контента и потребностей аудитории</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Планирование</h3>
-                    <p>Разработка детального контент-плана</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Создание</h3>
-                    <p>Производство качественного контента</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Оптимизация</h3>
-                    <p>Анализ результатов и улучшение стратегии</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="case-studies">
-            <h2>Примеры успешных проектов</h2>
-            <div class="case-study-grid">
-                <div class="case-study-card">
-                    <img src="../images/case-study-3.jpg" alt="Кейс 1">
-                    <h3>B2B Компания</h3>
-                    <p>Увеличение вовлеченности на 150% через контент-маркетинг</p>
-                </div>
-                <div class="case-study-card">
-                    <img src="../images/case-study-4.jpg" alt="Кейс 2">
-                    <h3>E-commerce проект</h3>
-                    <p>Рост конверсии на 80% благодаря оптимизации контента</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <div class="cta-content">
-                <h2>Готовы создать эффективную контент-стратегию?</h2>
-                <p>Давайте обсудим ваши цели</p>
-                <button class="cta-button">Получить консультацию</button>
-            </div>
-        </section>
+            <section class="empty-block">
+                <!-- Пустой блок для будущего контента -->
+            </section>
+        </div>
     </main>
 
     <footer>
