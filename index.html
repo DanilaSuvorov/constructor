@@ -11,7 +11,7 @@
     <header>
         <div class="logo">Consulting Co.</div>
         <nav>
-            <a href="index.html" class="active">Главная</a>
+            <a href="index.html">Главная</a>
             <div class="dropdown">
                 <a href="finance/finance.html" class="dropdown-toggle">Финансы</a>
                 <div class="dropdown-menu">
@@ -72,74 +72,530 @@ Journey Map (CJM)</a></li>
     </header>
 
     <main>
-        <section class="services-overview">
-            <h2>Наши услуги</h2>
-            <div class="service-grid">
-                <div class="service-category">
-                    <div class="category-icon">
-                        <i class="fas fa-chart-line"></i>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Развивай и совершенствуй собственный бизнес</h1>
+                <p>Сопровождаем бизнес от идеи до масштабирования. Помогаем преодолеть сложные периоды в краткие сроки и при разумном бюджете. Умеем выводить продукты на рынок, выстраивать систему продаж, повышать эффективность бизнеса.</p>
+                
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <span class="stat-number">2500+</span>
+                        <p>Компаний улучшили свои экономические показатели с нами</p>
                     </div>
-                    <h3>Финансы</h3>
-                    <ul>
-                        <li><a href="finance/balanced-scorecard.html">Разработка Balanced
-Scorecard - стратегического инструмента
-управления бизнесом</a></li>
-                        <li><a href="finance/p-n-l.html">Разработка P&L (Profit
-and loss statement) - отчёта о прибылях и
-убытках</a></li>
-                    </ul>
+                    <div class="stat-item">
+                        <span class="stat-number">до 300%</span>
+                        <p>Рост выручки компаний после реализации проекта</p>
+                    </div>
                 </div>
 
-                <div class="service-category">
-                    <div class="category-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Продажи</h3>
-                    <ul>
-                        <li><a href="sales/control-system.html">Система контроля и
-оценки эффективности</a></li>
-                        <li><a href="sales/sales-methodology.html">Разработка и внедрение
-методики продаж</a></li>
-                        <li><a href="sales/crm.html">Автоматизация продаж
-на базе CRM</a></li>
-                    </ul>
-                </div>
-
-                <div class="service-category">
-                    <div class="category-icon">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <h3>Маркетинг</h3>
-                    <ul>
-                        <li><a href="marketing/customer-segmentation.html">Сегментация клиентов</a></li>
-                        <li><a href="marketing/market-capacity.html">Расчет емкости рынка</a></li>
-                        <li><a href="marketing/cjm.html">Формирование Client
-Journey Map (CJM)</a></li>
-                        <li><a href="marketing/compres.html">Проведение
-исследований конкурентов</a></li>
-                        <li><a href="marketing/strategy-development.html">Разработка стратегии
-развития</a></li>
-                        <li><a href="marketing/custdev.html">Проведение
-исследований клиентов (custdev)</a></li>
-                    </ul>
-                </div>
-
-                <div class="service-category">
-                    <div class="category-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Персонал</h3>
-                    <ul>
-                        <li><a href="personnel/motivation-system.html">Система мотивации</a></li>
-                        <li><a href="personnel/grade-system.html">Разработка системы
-грейдов</a></li>
-                        <li><a href="personnel/engagement-management.html">Управление
-вовлеченностью</a></li>
-                        <li><a href="personnel/recruitment-system.html">Система найма</a></li>
-                    </ul>
+                <div class="hero-buttons">
+                    <a href="#" class="btn primary-btn" onclick="openFeedbackModal()">Получить консультацию</a>
+                    <a href="#services" class="btn secondary-btn">Ознакомиться с услугами</a>
                 </div>
             </div>
+            <div class="hero-image">
+                <img src="images/hero-image.jpg" alt="Business building">
+            </div>
         </section>
+
+        <!-- Feedback Modal -->
+        <div id="feedbackModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeFeedbackModal()">&times;</span>
+                <h2>Получить консультацию</h2>
+                <form id="feedbackForm" onsubmit="submitFeedbackForm(event)">
+                    <div class="form-group">
+                        <label for="name">Ваше имя*</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон*</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Отправить</button>
+                </form>
+            </div>
+        </div>
+
+        <style>
+            .hero-section {
+                display: flex;
+                align-items: center;
+                padding: 4rem 2rem;
+                background: #fff;
+                max-width: 1400px;
+                margin: 0 auto;
+                gap: 4rem;
+            }
+
+            .hero-content {
+                flex: 1;
+                max-width: 700px;
+            }
+
+            .hero-content h1 {
+                font-size: 3.5rem;
+                color: #1a1a1a;
+                margin-bottom: 1.5rem;
+                line-height: 1.2;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+                color: #4a4a4a;
+                line-height: 1.6;
+                margin-bottom: 2rem;
+            }
+
+            .stats-container {
+                display: flex;
+                gap: 3rem;
+                margin: 2rem 0;
+            }
+
+            .stat-item {
+                flex: 1;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+                color: #0066cc;
+                font-weight: bold;
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+
+            .stat-item p {
+                font-size: 1rem;
+                margin: 0;
+            }
+
+            .hero-buttons {
+                display: flex;
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+
+            .btn {
+                padding: 1rem 2rem;
+                border-radius: 8px;
+                font-size: 1.1rem;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+
+            .primary-btn {
+                background: #0066cc;
+                color: white;
+            }
+
+            .primary-btn:hover {
+                background: #0052a3;
+            }
+
+            .secondary-btn {
+                background: #f8f9ff;
+                color: #0066cc;
+                border: 2px solid #0066cc;
+            }
+
+            .secondary-btn:hover {
+                background: #e8eaff;
+            }
+
+            .hero-image {
+                flex: 1;
+                max-width: 600px;
+            }
+
+            .hero-image img {
+                width: 100%;
+                height: auto;
+                border-radius: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Modal Styles */
+            .modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 1000;
+                overflow-y: auto;
+            }
+
+            .modal-content {
+                position: relative;
+                background: #fff;
+                max-width: 500px;
+                margin: 50px auto;
+                padding: 2rem;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .close-modal {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: #666;
+                transition: color 0.3s;
+            }
+
+            .close-modal:hover {
+                color: #333;
+            }
+
+            .modal-content h2 {
+                margin-bottom: 1.5rem;
+                color: #0066cc;
+                text-align: center;
+            }
+
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 0.5rem;
+                color: #333;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                width: 100%;
+                padding: 0.8rem;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                font-size: 1rem;
+                transition: border-color 0.3s;
+            }
+
+            .form-group input:focus,
+            .form-group textarea:focus {
+                border-color: #0066cc;
+                outline: none;
+            }
+
+            .submit-btn {
+                width: 100%;
+                padding: 1rem;
+                background: #0066cc;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: background 0.3s;
+            }
+
+            .submit-btn:hover {
+                background: #0052a3;
+            }
+
+            @media (max-width: 1024px) {
+                .hero-section {
+                    flex-direction: column;
+                    text-align: center;
+                    padding: 2rem;
+                }
+
+                .hero-content {
+                    max-width: 100%;
+                }
+
+                .stats-container {
+                    justify-content: center;
+                }
+
+                .hero-buttons {
+                    justify-content: center;
+                }
+
+                .hero-image {
+                    max-width: 100%;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .hero-content h1 {
+                    font-size: 2.5rem;
+                }
+
+                .stats-container {
+                    flex-direction: column;
+                    gap: 2rem;
+                }
+
+                .hero-buttons {
+                    flex-direction: column;
+                }
+
+                .btn {
+                    width: 100%;
+                }
+
+                .modal-content {
+                    margin: 20px;
+                }
+            }
+        </style>
+
+        <script>
+            function openFeedbackModal() {
+                document.getElementById('feedbackModal').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeFeedbackModal() {
+                document.getElementById('feedbackModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+
+            function submitFeedbackForm(event) {
+                event.preventDefault();
+                
+                const formData = new FormData(event.target);
+                const data = {
+                    name: formData.get('name'),
+                    phone: formData.get('phone'),
+                    email: formData.get('email'),
+                    message: formData.get('message')
+                };
+
+                // Send email using EmailJS
+                emailjs.send('service_6e671bh', 'template_jsqow1a', {
+                    from_name: data.name,
+                    from_email: data.email,
+                    phone: data.phone,
+                    message: data.message,
+                    to_email: 'dansuvtim@gmail.com'
+                })
+                .then(function(response) {
+                    alert('Спасибо! Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время.');
+                    closeFeedbackModal();
+                    event.target.reset();
+                })
+                .catch(function(error) {
+                    console.error('EmailJS error:', error);
+                    alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
+                });
+            }
+
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                const modal = document.getElementById('feedbackModal');
+                if (event.target === modal) {
+                    closeFeedbackModal();
+                }
+            }
+        </script>
+
+        <!-- EmailJS SDK -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function() {
+                emailjs.init("iNFTbcpPWAfYxc64Z"); // Replace with your EmailJS public key
+            })();
+        </script>
+
+        <section class="service-selection">
+            <h2 class="section-title">Реализуемые консалтинговые услуги</h2>
+            <p class="section-description">Пожалуйста, выберите интересующее вас направление, и ниже появятся все консалтинговые услуги, относящиеся к нему</p>
+            
+            <div class="service-tabs">
+                <button class="tab-btn active" data-category="all">Все направления</button>
+                <button class="tab-btn" data-category="finance">Финансы</button>
+                <button class="tab-btn" data-category="marketing">Маркетинг</button>
+                <button class="tab-btn" data-category="processes">Процессы</button>
+                <button class="tab-btn" data-category="personnel">Персонал</button>
+            </div>
+
+            <div class="service-cards">
+                <!-- Finance Services -->
+                <div class="service-card" data-category="finance">
+                    <h3>Разработка Balanced Scorecard – стратегического инструмента управления бизнесом</h3>
+                    <p>Balanced Score Card – система сбалансированных показателей бизнеса, инструмент стратегического управления результативностью для достижения целевых значений функциональными подразделениями</p>
+                    <div class="card-footer">
+                        <span class="category">Финансы</span>
+                        <a href="balanced-scorecard.html" class="details-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Контактное лицо</h4>
+                        <div class="contact-person">
+                            <img src="../images/consultant.jpg" alt="Консультант" class="contact-avatar">
+                            <div class="contact-details">
+                                <h5>Татьяна Хасанова</h5>
+                                <p>Бизнес-эксперт по стратегии, маркетингу и операционному управлению</p>
+                                <a href="#" class="contact-more">Подробнее</a>
+                            </div>
+                        </div>
+                        <div class="service-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Офлайн или онлайн</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>По согласованию</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more service cards here -->
+            </div>
+        </section>
+
+        <style>
+            .service-selection {
+                padding: 4rem 2rem;
+                background: #f8f9ff;
+            }
+
+            .section-title {
+                text-align: center;
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .section-description {
+                text-align: center;
+                color: #666;
+                margin-bottom: 3rem;
+            }
+
+            .service-tabs {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin-bottom: 3rem;
+                flex-wrap: wrap;
+            }
+
+            .tab-btn {
+                padding: 0.8rem 1.5rem;
+                border: none;
+                background: transparent;
+                color: #666;
+                cursor: pointer;
+                border-radius: 20px;
+                transition: all 0.3s ease;
+            }
+
+            .tab-btn.active {
+                background: #4361ee;
+                color: white;
+            }
+
+            .service-cards {
+                display: grid;
+                gap: 2rem;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .service-card {
+                background: white;
+                border-radius: 10px;
+                padding: 2rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .service-card h3 {
+                color: #4361ee;
+                margin-bottom: 1rem;
+            }
+
+            .card-footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 2rem;
+                padding-top: 1rem;
+                border-top: 1px solid #eee;
+            }
+
+            .category {
+                background: #e8eaff;
+                color: #4361ee;
+                padding: 0.5rem 1rem;
+                border-radius: 15px;
+                font-size: 0.9rem;
+            }
+
+            .details-link {
+                color: #4361ee;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .contact-info {
+                margin-top: 2rem;
+                padding-top: 2rem;
+                border-top: 1px solid #eee;
+            }
+
+            .contact-person {
+                display: flex;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .contact-avatar {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .contact-details h5 {
+                margin: 0;
+                color: #333;
+            }
+
+            .contact-details p {
+                margin: 0.5rem 0;
+                font-size: 0.9rem;
+                color: #666;
+            }
+
+            .contact-more {
+                color: #4361ee;
+                text-decoration: none;
+                font-size: 0.9rem;
+            }
+
+            .service-meta {
+                display: flex;
+                gap: 2rem;
+                margin-top: 1rem;
+            }
+
+            .meta-item {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: #666;
+                font-size: 0.9rem;
+            }
+        </style>
 
         <section class="why-choose-us">
             <h2>Почему выбирают нас</h2>
@@ -219,8 +675,6 @@ Journey Map (CJM)</a></li>
             <p>&copy; 2025 Consulting Co. Все права защищены.</p>
         </div>
     </footer>
-
-    <script src="script.js"></script>
     <script src="js/auth.js"></script>
 </body>
 </html>
