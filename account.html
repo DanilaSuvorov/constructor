@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет - Consulting Co.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        :root {
+            --bg-gradient: linear-gradient(135deg, #f6f8fd 0%, #ffffff 100%);
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --surface: #ffffff;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+            --error: #ef4444;
+            --success: #10b981;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--bg-gradient);
+            color: var(--text);
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .account-container {
+            flex: 1;
+            width: 100%;
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .account-section {
+            background: var(--surface);
+            border-radius: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .account-form-container {
+            max-width: 420px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .form-header i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+
+        .form-header p {
+            color: var(--text-light);
+            font-size: 1.125rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.875rem 1rem 0.875rem 3rem;
+            background: #f9fafb;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 1rem;
+            color: var(--text);
+            transition: all 0.2s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: var(--surface);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-light);
+        }
+
+        .account-btn {
+            width: 100%;
+            padding: 1.125rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .account-btn i {
+            font-size: 1.2rem;
+        }
+
+        .account-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .account-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .switch-form-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 0.25rem;
+        }
+
+        .switch-form-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Dashboard Styles */
+        .dashboard-container {
+            padding: 2rem;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-header i {
+            font-size: 2rem;
+            margin-right: 0.75rem;
+            color: var(--primary);
+        }
+
+        .dashboard-header h2 {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .logout-btn {
+            padding: 1.125rem 1.5rem;
+            background: transparent;
+            color: var(--error);
+            border: 2px solid currentColor;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.1rem;
+        }
+
+        .logout-btn i {
+            font-size: 1.2rem;
+        }
+
+        .logout-btn:hover {
+            background: var(--error);
+            color: white;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .dashboard-card {
+            background: #f9fafb;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary);
+            color: white;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-icon i {
+            font-size: 1.75rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .card-content {
+            color: var(--text-light);
+        }
+
+        /* Messages */
+        .message {
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .message i {
+            font-size: 1.25rem;
+        }
+
+        .success-message {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--error);
+            border: 1px solid var(--error);
+        }
+
+        /* Loading State */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .loading-spinner {
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .account-container {
+                margin: 1rem auto;
+            }
+
+            .account-form-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .logout-btn {
+                width: 100%;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Consulting Co.</div>
+        <nav>
+            <a href="index.html">Главная</a>
+            <div class="dropdown">
+                <a href="finance/finance.html" class="dropdown-toggle">Финансы</a>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li><a href="finance/balanced-scorecard.html">Разработка Balanced Scorecard</a></li>
+                        <li><a href="finance/p-n-l.html">Разработка P&L</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="sales/sales.html" class="dropdown-toggle">Продажи</a>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li><a href="sales/control-system.html">Система контроля</a></li>
+                        <li><a href="sales/sales-methodology.html">Методика продаж</a></li>
+                        <li><a href="sales/crm.html">Автоматизация продаж</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="marketing/marketing.html" class="dropdown-toggle">Маркетинг</a>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li><a href="marketing/customer-segmentation.html">Сегментация клиентов</a></li>
+                        <li><a href="marketing/market-capacity.html">Расчет емкости рынка</a></li>
+                        <li><a href="marketing/cjm.html">Client Journey Map</a></li>
+                        <li><a href="marketing/compres.html">Исследования конкурентов</a></li>
+                        <li><a href="marketing/strategy-development.html">Стратегия развития</a></li>
+                        <li><a href="marketing/custdev.html">Исследования клиентов</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="personnel/personnel.html" class="dropdown-toggle">Персонал</a>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li><a href="personnel/motivation-system.html">Система мотивации</a></li>
+                        <li><a href="personnel/grade-system.html">Система грейдов</a></li>
+                        <li><a href="personnel/engagement-management.html">Управление вовлеченностью</a></li>
+                        <li><a href="personnel/recruitment-system.html">Система найма</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="account.html" class="dropdown-toggle active">Личный кабинет</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="account-container">
+        <!-- Login Section (shown by default) -->
+        <div id="loginSection" class="account-section">
+            <div class="account-form-container">
+                <div class="form-header">
+                    <i class="fas fa-user-circle"></i>
+                    <h2>Вход в личный кабинет</h2>
+                </div>
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <div class="input-wrapper">
+                            <input type="email" id="loginEmail" placeholder="Введите ваш email" required>
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Пароль</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="loginPassword" placeholder="Введите ваш пароль" required>
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                    <button type="submit" class="account-btn">
+                        <i class="fas fa-sign-in-alt"></i> Войти
+                    </button>
+                    <div class="form-footer">
+                        <p>Нет аккаунта? <a href="#" onclick="switchToRegister()" class="switch-form-link">Зарегистрироваться</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Register Section (hidden by default) -->
+        <div id="registerSection" class="account-section" style="display: none;">
+            <div class="account-form-container">
+                <div class="form-header">
+                    <i class="fas fa-user-plus"></i>
+                    <h2>Регистрация</h2>
+                </div>
+                <form id="registerForm" onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <div class="input-wrapper">
+                            <input type="email" id="registerEmail" placeholder="Введите ваш email" required>
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Пароль</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="registerPassword" placeholder="Создайте пароль" required>
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Подтверждение пароля</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="confirmPassword" placeholder="Повторите пароль" required>
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                    <button type="submit" class="account-btn">
+                        <i class="fas fa-user-plus"></i> Зарегистрироваться
+                    </button>
+                    <div class="form-footer">
+                        <p>Уже есть аккаунт? <a href="#" onclick="switchToLogin()" class="switch-form-link">Войти</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dashboard Section (hidden by default) -->
+        <div id="dashboardSection" class="account-section" style="display: none;">
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <h2><i class="fas fa-tachometer-alt"></i> Личный кабинет</h2>
+                    <button onclick="handleLogout()" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Выйти
+                    </button>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3 class="card-title">Профиль</h3>
+                        </div>
+                        <div class="card-content">
+                            <p id="userName">Имя пользователя</p>
+                            <p id="userEmail">email@example.com</p>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3 class="card-title">Компания</h3>
+                        </div>
+                        <div class="card-content">
+                            <p id="userCompany">Название компании</p>
+                            <p id="userPosition">Должность</p>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="card-title">Статистика</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Активность: <span class="text-success">Высокая</span></p>
+                            <p>Последний вход: Сегодня</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:5000';
+
+        // Check login status on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuthStatus();
+        });
+
+        function checkAuthStatus() {
+            fetch(`${API_BASE_URL}/api/user`, {
+                credentials: 'include'
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json().then(user => {
+                        showDashboard(user);
+                    });
+                } else {
+                    hideDashboard();
+                }
+            })
+            .catch(() => {
+                hideDashboard();
+            });
+        }
+
+        function switchToRegister() {
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('registerSection').style.display = 'block';
+        }
+
+        function switchToLogin() {
+            document.getElementById('registerSection').style.display = 'none';
+            document.getElementById('loginSection').style.display = 'block';
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (!email || !password) {
+                showError('Пожалуйста, заполните все поля');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = event.target.querySelector('.submit-btn');
+            const originalContent = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Вход...';
+            submitBtn.disabled = true;
+            
+            fetch(`${API_BASE_URL}/api/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+                credentials: 'include'
+            })
+            .then(response => response.json().then(data => ({ status: response.status, data })))
+            .then(({ status, data }) => {
+                if (status === 200) {
+                    showDashboard(data.user);
+                } else {
+                    throw new Error(data.message);
+                }
+            })
+            .catch(error => {
+                showError(error.message || 'Ошибка сервера');
+                submitBtn.innerHTML = originalContent;
+                submitBtn.disabled = false;
+            });
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (!email || !password || !confirmPassword) {
+                showError('Пожалуйста, заполните все поля');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showError('Пароли не совпадают');
+                return;
+            }
+
+            if (password.length < 6) {
+                showError('Пароль должен содержать не менее 6 символов');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = event.target.querySelector('.submit-btn');
+            const originalContent = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Проверка...';
+            submitBtn.disabled = true;
+
+            // First check if email exists
+            fetch(`${API_BASE_URL}/api/check-email`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+                credentials: 'include'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.exists) {
+                    throw new Error('Пользователь с таким email уже существует. Пожалуйста, используйте другой email или войдите в существующий аккаунт.');
+                }
+                
+                // If email is available, proceed with registration
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Регистрация...';
+                return fetch(`${API_BASE_URL}/api/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password }),
+                    credentials: 'include'
+                });
+            })
+            .then(response => response.json().then(data => ({ status: response.status, data })))
+            .then(({ status, data }) => {
+                if (status === 201) {
+                    // Auto-login after successful registration
+                    return fetch(`${API_BASE_URL}/api/login`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ email, password }),
+                        credentials: 'include'
+                    }).then(response => response.json());
+                } else {
+                    throw new Error(data.message);
+                }
+            })
+            .then(data => {
+                if (data.message === 'Вход выполнен успешно') {
+                    showDashboard(data.user);
+                } else {
+                    throw new Error(data.message);
+                }
+            })
+            .catch(error => {
+                showError(error.message || 'Ошибка сервера');
+                submitBtn.innerHTML = originalContent;
+                submitBtn.disabled = false;
+            });
+        }
+
+        // Add email validation on input
+        document.getElementById('registerEmail').addEventListener('input', function(e) {
+            const email = e.target.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (email && !emailRegex.test(email)) {
+                e.target.setCustomValidity('Пожалуйста, введите корректный email');
+            } else {
+                e.target.setCustomValidity('');
+            }
+        });
+
+        function handleLogout() {
+            fetch(`${API_BASE_URL}/api/logout`, {
+                method: 'POST',
+                credentials: 'include'
+            })
+            .then(() => {
+                hideDashboard();
+            })
+            .catch(error => {
+                showError('Ошибка при выходе');
+            });
+        }
+
+        function showDashboard(user) {
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('registerSection').style.display = 'none';
+            document.getElementById('dashboardSection').style.display = 'block';
+            
+            // Update dashboard with user data
+            const dashboardHeader = document.querySelector('.dashboard-header h2');
+            dashboardHeader.textContent = `Добро пожаловать, ${user.name}!`;
+        }
+
+        function hideDashboard() {
+            document.getElementById('dashboardSection').style.display = 'none';
+            document.getElementById('loginSection').style.display = 'block';
+        }
+
+        function showError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
+            
+            const form = document.querySelector('form:not([style*="display: none"])');
+            const existingError = form.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+            
+            form.insertBefore(errorDiv, form.firstChild);
+            
+            setTimeout(() => {
+                errorDiv.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

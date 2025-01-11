@@ -68,6 +68,9 @@ Journey Map (CJM)</a></li>
                     </ul>
                 </div>
             </div>
+            <div class="dropdown">
+                <a href="account.html" class="dropdown-toggle">Личный кабинет</a>
+            </div>
         </nav>
     </header>
 
@@ -88,15 +91,55 @@ Journey Map (CJM)</a></li>
                     </div>
                 </div>
 
-                <div class="hero-buttons">
-                    <a href="#" class="btn primary-btn" onclick="openFeedbackModal()">Получить консультацию</a>
-                    <a href="#services" class="btn secondary-btn">Ознакомиться с услугами</a>
-                </div>
+                <style>
+                    .hero-buttons {
+                        display: none;
+                    }
+                </style>
             </div>
             <div class="hero-image">
                 <img src="images/hero-image.jpg" alt="Business building">
             </div>
         </section>
+
+        <!-- Fixed Consultation Button -->
+        <div class="fixed-consultation">
+            <button class="consultation-btn" onclick="openFeedbackModal()" title="Получить консультацию">
+                <i class="fas fa-comments"></i>
+            </button>
+        </div>
+
+        <style>
+            .fixed-consultation {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                z-index: 999;
+            }
+
+            .consultation-btn {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background: #0066cc;
+                color: white;
+                border: none;
+                display: grid;
+                place-items: center;
+                cursor: pointer;
+            }
+
+            .consultation-btn i {
+                font-size: 20px;
+            }
+
+            @media (max-width: 768px) {
+                .fixed-consultation {
+                    bottom: 20px;
+                    right: 20px;
+                }
+            }
+        </style>
 
         <!-- Feedback Modal -->
         <div id="feedbackModal" class="modal">
@@ -188,6 +231,8 @@ Journey Map (CJM)</a></li>
                 padding: 1rem 2rem;
                 border-radius: 8px;
                 font-size: 1.1rem;
+                margin: 0 auto;
+                display: block;
                 text-decoration: none;
                 transition: all 0.3s ease;
             }
