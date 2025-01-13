@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проведение исследований клиентов (custdev)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .service-purpose, .service-content, .empty-block {
+            background: #ffffff;
+            border-radius: 20px;
+            margin: 0 0 40px 0;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .service-purpose h2, .service-content h2 {
+            color: #0066cc;
+            font-size: 2rem;
+            margin: 0 0 25px 0;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #0066cc;
+        }
+        .service-purpose p, .service-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin: 0;
+        }
+        .service-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0 0;
+        }
+        .service-content ul li {
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            position: relative;
+        }
+        .service-content ul li::before {
+            content: '•';
+            color: #0066cc;
+            position: absolute;
+            left: 10px;
+            font-size: 1.5em;
+        }
+        .empty-block {
+            min-height: 200px;
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Consulting Co.</div>
+        <nav>
+            <a href="../index.html">Главная</a>
+            <div class="dropdown">
+                <a href="../finance/finance.html" class="dropdown-toggle">Финансы</a>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li><a href="../finance/balanced-scorecard.html">Разработка Balanced
+Scorecard - стратегического инструмента
+управления бизнесом</a></li>
+                        <li><a href="../finance/p-n-l.html">Разработка P&L (Profit
+and loss statement) - отчёта о прибылях и
+убытках</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="../sales/sales.html" class="dropdown-toggle">Продажи</a>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li><a href="../sales/control-system.html">Система контроля и
+оценки эффективности</a></li>
+                        <li><a href="../sales/sales-methodology.html">Разработка и внедрение
+методики продаж</a></li>
+                        <li><a href="../sales/crm.html">Автоматизация продаж
+на базе CRM</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="marketing.html" class="dropdown-toggle">Маркетинг</a>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li><a href="customer-segmentation.html">Сегментация клиентов</a></li>
+                        <li><a href="market-capacity.html">Расчет емкости рынка</a></li>
+                        <li><a href="cjm.html">Формирование Client
+Journey Map (CJM)</a></li>
+                        <li><a href="compres.html">Проведение
+исследований конкурентов</a></li>
+                        <li><a href="strategy-development.html">Разработка стратегии
+развития</a></li>
+                        <li><a href="custdev.html">Проведение
+исследований клиентов (custdev)</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="../personnel/personnel.html" class="dropdown-toggle">Персонал</a>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li><a href="../personnel/motivation-system.html">Система мотивации</a></li>
+                        <li><a href="../personnel/grade-system.html">Разработка системы
+грейдов</a></li>
+                        <li><a href="../personnel/engagement-management.html">Управление
+вовлеченностью</a></li>
+                        <li><a href="../personnel/recruitment-system.html">Система найма</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="../account.html" class="dropdown-toggle">Личный кабинет</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero finance-hero">
+            <div class="hero-content">
+                <h1>Проведение исследований клиентов (custdev)</h1>
+                <p>Исследование
+                    клиентов, выявление их запросов, ожиданий,
+                    потребностей, отношения к продукту,
+                    компании</p>
+            </div>
+        </section>
+
+        <div class="content-wrapper">
+            <section class="service-purpose">
+                <h2>Назначение услуги</h2>
+                <p>Понимание своего клиента, знание его отношения к вашему бизнесу, продукту, сотрудникам. На основе
+                    данных знаний разработка правильного позиционирования бизнеса на рынке, при необходимости
+                    корректировка бизнес-процессов или продуктового портфеля под сегменты</p>
+            </section>
+
+            <section class="service-content">
+                <h2>Содержание услуги</h2>
+                <p>Проведение минимум шести кастдевов по трем категориям клиентов (действующие, ушедшие,
+                    потенциальные) в соответствии с разработанной структурой. Анализ собранной информации. Формирование
+                    плана корректирующих мероприятий</p>
+            </section>
+
+            <section class="empty-block">
+                <!-- Пустой блок для будущего контента -->
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Свяжитесь с нами</h3>
+                <p>Email: info@consultingco.com</p>
+                <p>Телефон: (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Следите за нами</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Расположение</h3>
+                <p>123 Business Street</p>
+                <p>Silicon Valley, CA 94025</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Consulting Co. Все права защищены.</p>
+        </div>
+    </footer>
+    <script src="../js/auth.js"></script>
+    <script src="../js/consultation.js"></script>
+</body>
+</html>
