@@ -61,11 +61,30 @@
             align-items: center;
             justify-content: center;
         }
+        /* Logo styles */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0066cc;
+        }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">Consulting Co.</div>
+        <div class="logo">
+            <img src="../images/logo.png" alt="Consulting Co. Logo">
+        </div>
         <nav>
             <a href="../index.html">Главная</a>
             <div class="dropdown">

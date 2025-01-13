@@ -14,6 +14,25 @@
             margin: 0 auto;
             padding: 40px 20px;
         }
+        
+        /* Logo styles */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0066cc;
+        }
+        
         .service-purpose, .service-content, .empty-block {
             background: #ffffff;
             border-radius: 20px;
@@ -67,7 +86,9 @@
 </head>
 <body>
     <header>
-        <div class="logo">Consulting Co.</div>
+        <div class="logo">
+            <img src="../images/logo.png" alt="Consulting Co. Logo">
+        </div>
         <nav>
             <a href="../index.html">Главная</a>
             <div class="dropdown">

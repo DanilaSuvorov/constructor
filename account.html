@@ -3,177 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Личный кабинет - Consulting Co.</title>
+    <title>Consulting Co. - Аккаунт</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        :root {
-            --bg-gradient: linear-gradient(135deg, #f6f8fd 0%, #ffffff 100%);
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --surface: #ffffff;
-            --text: #1f2937;
-            --text-light: #6b7280;
-            --border: #e5e7eb;
-            --error: #ef4444;
-            --success: #10b981;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             min-height: 100vh;
-            background: var(--bg-gradient);
-            color: var(--text);
-            line-height: 1.5;
             display: flex;
             flex-direction: column;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
         }
 
-        .account-container {
+        .main-content {
             flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .auth-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 1280px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
+            max-width: 400px;
         }
 
-        .account-section {
-            background: var(--surface);
-            border-radius: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-                        0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .account-form-container {
-            max-width: 420px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .form-header i {
-            font-size: 3rem;
-            color: var(--primary);
+        .auth-title {
+            font-size: 24px;
+            color: #333;
             margin-bottom: 1.5rem;
+            text-align: center;
         }
-
-        .form-header h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 1rem;
-            letter-spacing: -0.025em;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-
-        .form-header p {
-            color: var(--text-light);
-            font-size: 1.125rem;
+        
+        .logo img {
+            height: 40px;
+            width: auto;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--text);
-            margin-bottom: 0.5rem;
-        }
-
-        .input-wrapper {
+            margin-bottom: 1rem;
             position: relative;
         }
 
-        .input-wrapper i {
+        .form-group i {
             position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-light);
-            font-size: 0.9rem;
-            opacity: 0.7;
+            left: 10px;
+            top: 38px;
+            color: #666;
+            line-height: 1;
         }
 
         .form-group input {
             width: 100%;
-            padding: 0.875rem 1rem 0.875rem 3rem;
-            background: #f9fafb;
-            border: 2px solid var(--border);
-            border-radius: 12px;
+            padding: 10px 10px 10px 35px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
             font-size: 1rem;
-            color: var(--text);
-            transition: all 0.2s ease;
+            line-height: 1.5;
+            height: 40px;
         }
 
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: var(--surface);
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
-        }
-
-        .form-group input::placeholder {
-            color: var(--text-light);
-        }
-
-        .account-btn {
+        .auth-button {
             width: 100%;
-            padding: 1.125rem 1.5rem;
-            background: var(--primary);
+            padding: 12px;
+            background: #0066cc;
             color: white;
             border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            border-radius: 4px;
+            font-size: 16px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
+            transition: background-color 0.2s;
         }
 
-        .account-btn i {
-            font-size: 1.2rem;
+        .auth-button:hover {
+            background: #0052a3;
         }
 
-        .account-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-1px);
-        }
-
-        .account-btn:active {
-            transform: translateY(0);
-        }
-
-        .form-footer {
-            margin-top: 2rem;
+        .auth-links {
+            margin-top: 1rem;
             text-align: center;
-            color: var(--text-light);
-            font-size: 0.875rem;
+            font-size: 14px;
         }
 
-        .switch-form-link {
-            color: var(--primary);
+        .auth-link {
+            color: #0066cc;
             text-decoration: none;
-            font-weight: 500;
-            margin-left: 0.25rem;
+            cursor: pointer;
         }
 
-        .switch-form-link:hover {
+        .auth-link:hover {
             text-decoration: underline;
         }
 
-        /* Dashboard Styles */
+        .alert {
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .alert-error {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .alert-success {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .account-section {
+            display: none;
+        }
+
+        .account-section.active {
+            display: block;
+        }
+
+        /* Dashboard styles */
         .dashboard-container {
+            background: white;
             padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .dashboard-header {
@@ -181,187 +149,102 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
         }
 
-        .dashboard-header i {
-            font-size: 2rem;
-            margin-right: 0.75rem;
-            color: var(--primary);
-        }
-
-        .dashboard-header h2 {
-            font-size: 2rem;
-            display: flex;
-            align-items: center;
+        .dashboard-title {
+            font-size: 24px;
+            color: #333;
         }
 
         .logout-btn {
-            padding: 1.125rem 1.5rem;
-            background: transparent;
-            color: var(--error);
-            border: 2px solid currentColor;
-            border-radius: 12px;
-            font-weight: 600;
+            padding: 8px 16px;
+            background: #dc2626;
+            color: white;
+            border: none;
+            border-radius: 4px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 1.1rem;
-        }
-
-        .logout-btn i {
-            font-size: 1.2rem;
+            transition: background-color 0.2s;
         }
 
         .logout-btn:hover {
-            background: var(--error);
-            color: white;
+            background: #b91c1c;
         }
 
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .dashboard-card {
-            background: #f9fafb;
-            border-radius: 16px;
-            padding: 1.5rem;
-            border: 1px solid var(--border);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 1.25rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-icon {
-            width: 56px;
-            height: 56px;
-            background: var(--primary);
-            color: white;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .card-icon i {
-            font-size: 1.75rem;
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .card-content {
-            color: var(--text-light);
-        }
-
-        /* Messages */
-        .message {
+        .user-info {
+            background: #f8f9fa;
             padding: 1rem;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .message i {
-            font-size: 1.25rem;
-        }
-
-        .success-message {
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--success);
-            border: 1px solid var(--success);
-        }
-
-        .error-message {
-            background: rgba(239, 68, 68, 0.1);
-            color: var(--error);
-            border: 1px solid var(--error);
-        }
-
-        /* Loading State */
-        .loading {
-            opacity: 0.7;
-            pointer-events: none;
-        }
-
-        .loading-spinner {
-            width: 1.5rem;
-            height: 1.5rem;
-            border: 2px solid #f3f3f3;
-            border-top: 2px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .account-container {
-                margin: 1rem auto;
-            }
-
-            .account-form-container {
-                padding: 2rem 1.5rem;
-            }
-
-            .form-header h2 {
-                font-size: 1.75rem;
-            }
-
-            .dashboard-header {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            .logout-btn {
-                width: 100%;
-            }
-
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #c1c1c1;
             border-radius: 4px;
         }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #a8a8a8;
+        .user-info p {
+            margin: 0.5rem 0;
+            color: #555;
+        }
+
+        /* Footer styles */
+        footer {
+            background: #333;
+            color: white;
+            padding: 60px 20px 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            color: white;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+            color: white;
+            line-height: 1.5;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #0066cc;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            color: white;
+            margin: 0;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">Consulting Co.</div>
+        <div class="logo">
+            <img src="images/logo.png" alt="Consulting Co. Logo">
+        </div>
         <nav>
             <a href="index.html">Главная</a>
             <div class="dropdown">
@@ -421,350 +304,431 @@ Journey Map (CJM)</a></li>
                 </div>
             </div>
             <div class="dropdown">
-                <a href="account.html" class="dropdown-toggle active">Личный кабинет</a>
+                <a href="account.html" class="dropdown-toggle">Личный кабинет</a>
             </div>
         </nav>
     </header>
-
-    <main class="account-container">
-        <!-- Login Section (shown by default) -->
-        <div id="loginSection" class="account-section">
-            <div class="account-form-container">
-                <div class="form-header">
-                    <i class="fas fa-user-circle"></i>
-                    <h2>Вход в личный кабинет</h2>
-                </div>
-                <form id="loginForm" onsubmit="handleLogin(event)">
+    <div class="main-content">
+        <div class="auth-container">
+            <!-- Login Section -->
+            <section id="loginSection" class="account-section active">
+                <h2 class="auth-title">Вход в систему</h2>
+                <form onsubmit="handleLogin(event)">
                     <div class="form-group">
                         <label for="loginEmail">Email</label>
                         <div class="input-wrapper">
-                            <input type="email" id="loginEmail" placeholder="Введите ваш email" required>
                             <i class="fas fa-envelope"></i>
+                            <input type="email" id="loginEmail" class="auth-input" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="loginPassword">Пароль</label>
                         <div class="input-wrapper">
-                            <input type="password" id="loginPassword" placeholder="Введите ваш пароль" required>
                             <i class="fas fa-lock"></i>
+                            <input type="password" id="loginPassword" class="auth-input" required>
                         </div>
                     </div>
-                    <button type="submit" class="account-btn">
-                        <i class="fas fa-sign-in-alt"></i> Войти
-                    </button>
-                    <div class="form-footer">
-                        <p>Нет аккаунта? <a href="#" onclick="switchToRegister()" class="switch-form-link">Зарегистрироваться</a></p>
+                    <button type="submit" class="auth-button">Войти</button>
+                    <div class="auth-links">
+                        <a class="auth-link" onclick="switchToRegister()">Зарегистрироваться</a>
+                        <span style="margin: 0 8px; color: #999;">|</span>
+                        <a class="auth-link" onclick="switchToRecovery()">Забыли пароль?</a>
                     </div>
                 </form>
-            </div>
-        </div>
+            </section>
 
-        <!-- Register Section (hidden by default) -->
-        <div id="registerSection" class="account-section" style="display: none;">
-            <div class="account-form-container">
-                <div class="form-header">
-                    <i class="fas fa-user-plus"></i>
-                    <h2>Регистрация</h2>
-                </div>
-                <form id="registerForm" onsubmit="handleRegister(event)">
+            <!-- Register Section -->
+            <section id="registerSection" class="account-section">
+                <h2 class="auth-title">Регистрация</h2>
+                <form onsubmit="handleRegister(event)">
                     <div class="form-group">
                         <label for="registerEmail">Email</label>
                         <div class="input-wrapper">
-                            <input type="email" id="registerEmail" placeholder="Введите ваш email" required>
                             <i class="fas fa-envelope"></i>
+                            <input type="email" id="registerEmail" class="auth-input" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="registerPassword">Пароль</label>
                         <div class="input-wrapper">
-                            <input type="password" id="registerPassword" placeholder="Создайте пароль" required>
                             <i class="fas fa-lock"></i>
+                            <input type="password" id="registerPassword" class="auth-input" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="confirmPassword">Подтверждение пароля</label>
+                        <label for="confirmPassword">Подтвердите пароль</label>
                         <div class="input-wrapper">
-                            <input type="password" id="confirmPassword" placeholder="Повторите пароль" required>
                             <i class="fas fa-lock"></i>
+                            <input type="password" id="confirmPassword" class="auth-input" required>
                         </div>
                     </div>
-                    <button type="submit" class="account-btn">
-                        <i class="fas fa-user-plus"></i> Зарегистрироваться
-                    </button>
-                    <div class="form-footer">
-                        <p>Уже есть аккаунт? <a href="#" onclick="switchToLogin()" class="switch-form-link">Войти</a></p>
+                    <button type="submit" class="auth-button">Зарегистрироваться</button>
+                    <div class="auth-links">
+                        <a class="auth-link" onclick="switchToLogin()">Уже есть аккаунт? Войти</a>
                     </div>
                 </form>
+            </section>
+
+            <!-- Recovery Section -->
+            <section id="recoverySection" class="account-section">
+                <h2 class="auth-title">Восстановление пароля</h2>
+                <div id="recoveryStep1">
+                    <form onsubmit="handleRecoveryRequest(event)">
+                        <div class="form-group">
+                            <label for="recoveryEmail">Email</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="recoveryEmail" class="auth-input" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="auth-button">Отправить код</button>
+                        <div class="auth-links">
+                            <a class="auth-link" onclick="switchToLogin()">Вернуться к входу</a>
+                        </div>
+                    </form>
+                </div>
+                <div id="recoveryStep2" style="display: none;">
+                    <form onsubmit="handlePasswordReset(event)">
+                        <div class="form-group">
+                            <label for="resetToken">Код из email</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-key"></i>
+                                <input type="text" id="resetToken" class="auth-input" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">Новый пароль</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="newPassword" class="auth-input" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmNewPassword">Подтвердите пароль</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="confirmNewPassword" class="auth-input" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="auth-button">Сбросить пароль</button>
+                        <div class="auth-links">
+                            <a class="auth-link" onclick="switchToLogin()">Вернуться к входу</a>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Dashboard Section -->
+            <section id="dashboardSection" class="account-section">
+                <div class="dashboard-container">
+                    <div class="dashboard-header">
+                        <h2 class="dashboard-title">Личный кабинет</h2>
+                        <button onclick="handleLogout()" class="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i> Выйти
+                        </button>
+                    </div>
+                    <div class="user-info">
+                        <p><i class="fas fa-envelope"></i> Email: <span id="userEmail"></span></p>
+                        <p><i class="fas fa-circle" style="color: #16a34a"></i> Статус: Активный</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Свяжитесь с нами</h3>
+                <p>Email: info@consultingco.com</p>
+                <p>Телефон: (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h3>Следите за нами</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Расположение</h3>
+                <p>123 Business Street</p>
+                <p>Silicon Valley, CA 94025</p>
             </div>
         </div>
-
-        <!-- Dashboard Section (hidden by default) -->
-        <div id="dashboardSection" class="account-section" style="display: none;">
-            <div class="dashboard-container">
-                <div class="dashboard-header">
-                    <h2><i class="fas fa-tachometer-alt"></i> Личный кабинет</h2>
-                    <button onclick="handleLogout()" class="logout-btn">
-                        <i class="fas fa-sign-out-alt"></i> Выйти
-                    </button>
-                </div>
-                
-                <div class="dashboard-grid">
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <h3 class="card-title">Профиль</h3>
-                        </div>
-                        <div class="card-content">
-                            <p id="userName">Имя пользователя</p>
-                            <p id="userEmail">email@example.com</p>
-                        </div>
-                    </div>
-
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-building"></i>
-                            </div>
-                            <h3 class="card-title">Компания</h3>
-                        </div>
-                        <div class="card-content">
-                            <p id="userCompany">Название компании</p>
-                            <p id="userPosition">Должность</p>
-                        </div>
-                    </div>
-
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3 class="card-title">Статистика</h3>
-                        </div>
-                        <div class="card-content">
-                            <p>Активность: <span class="text-success">Высокая</span></p>
-                            <p>Последний вход: Сегодня</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Consulting Co. Все права защищены.</p>
         </div>
-    </main>
+    </footer>
 
     <script>
         const API_BASE_URL = 'http://localhost:5000';
-
-        // Check login status on page load
-        document.addEventListener('DOMContentLoaded', () => {
+        
+        // Show login section by default
+        switchToLogin();
+        
+        // Check if user is already logged in
+        const token = localStorage.getItem('token');
+        if (token) {
             checkAuthStatus();
-        });
-
-        function checkAuthStatus() {
-            fetch(`${API_BASE_URL}/api/user`, {
-                credentials: 'include'
-            })
-            .then(response => {
-                if (response.ok) {
-                    return response.json().then(user => {
-                        showDashboard(user);
-                    });
-                } else {
-                    hideDashboard();
-                }
-            })
-            .catch(() => {
-                hideDashboard();
-            });
+        }
+        
+        // Section switching functions
+        function switchToLogin() {
+            document.getElementById('loginSection').style.display = 'block';
+            document.getElementById('registerSection').style.display = 'none';
+            document.getElementById('recoverySection').style.display = 'none';
+            document.getElementById('dashboardSection').style.display = 'none';
         }
 
         function switchToRegister() {
             document.getElementById('loginSection').style.display = 'none';
             document.getElementById('registerSection').style.display = 'block';
+            document.getElementById('recoverySection').style.display = 'none';
+            document.getElementById('dashboardSection').style.display = 'none';
         }
 
-        function switchToLogin() {
+        function switchToRecovery() {
+            document.getElementById('loginSection').style.display = 'none';
             document.getElementById('registerSection').style.display = 'none';
-            document.getElementById('loginSection').style.display = 'block';
-        }
-
-        function handleLogin(event) {
-            event.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            
-            if (!email || !password) {
-                showError('Пожалуйста, заполните все поля');
-                return;
-            }
-            
-            // Show loading state
-            const submitBtn = event.target.querySelector('.submit-btn');
-            const originalContent = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Вход...';
-            submitBtn.disabled = true;
-            
-            fetch(`${API_BASE_URL}/api/login`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
-                credentials: 'include'
-            })
-            .then(response => response.json().then(data => ({ status: response.status, data })))
-            .then(({ status, data }) => {
-                if (status === 200) {
-                    showDashboard(data.user);
-                } else {
-                    throw new Error(data.message);
-                }
-            })
-            .catch(error => {
-                showError(error.message || 'Ошибка сервера');
-                submitBtn.innerHTML = originalContent;
-                submitBtn.disabled = false;
-            });
-        }
-
-        function handleRegister(event) {
-            event.preventDefault();
-            const email = document.getElementById('registerEmail').value;
-            const password = document.getElementById('registerPassword').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            
-            if (!email || !password || !confirmPassword) {
-                showError('Пожалуйста, заполните все поля');
-                return;
-            }
-            
-            if (password !== confirmPassword) {
-                showError('Пароли не совпадают');
-                return;
-            }
-
-            if (password.length < 6) {
-                showError('Пароль должен содержать не менее 6 символов');
-                return;
-            }
-            
-            // Show loading state
-            const submitBtn = event.target.querySelector('.submit-btn');
-            const originalContent = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Проверка...';
-            submitBtn.disabled = true;
-
-            // First check if email exists
-            fetch(`${API_BASE_URL}/api/check-email`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email }),
-                credentials: 'include'
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.exists) {
-                    throw new Error('Пользователь с таким email уже существует. Пожалуйста, используйте другой email или войдите в существующий аккаунт.');
-                }
-                
-                // If email is available, proceed with registration
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Регистрация...';
-                return fetch(`${API_BASE_URL}/api/register`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email, password }),
-                    credentials: 'include'
-                });
-            })
-            .then(response => response.json().then(data => ({ status: response.status, data })))
-            .then(({ status, data }) => {
-                if (status === 201) {
-                    // Auto-login after successful registration
-                    return fetch(`${API_BASE_URL}/api/login`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ email, password }),
-                        credentials: 'include'
-                    }).then(response => response.json());
-                } else {
-                    throw new Error(data.message);
-                }
-            })
-            .then(data => {
-                if (data.message === 'Вход выполнен успешно') {
-                    showDashboard(data.user);
-                } else {
-                    throw new Error(data.message);
-                }
-            })
-            .catch(error => {
-                showError(error.message || 'Ошибка сервера');
-                submitBtn.innerHTML = originalContent;
-                submitBtn.disabled = false;
-            });
-        }
-
-        // Add email validation on input
-        document.getElementById('registerEmail').addEventListener('input', function(e) {
-            const email = e.target.value;
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            
-            if (email && !emailRegex.test(email)) {
-                e.target.setCustomValidity('Пожалуйста, введите корректный email');
-            } else {
-                e.target.setCustomValidity('');
-            }
-        });
-
-        function handleLogout() {
-            fetch(`${API_BASE_URL}/api/logout`, {
-                method: 'POST',
-                credentials: 'include'
-            })
-            .then(() => {
-                hideDashboard();
-            })
-            .catch(error => {
-                showError('Ошибка при выходе');
-            });
+            document.getElementById('recoverySection').style.display = 'block';
+            document.getElementById('dashboardSection').style.display = 'none';
+            document.getElementById('recoveryStep1').style.display = 'block';
+            document.getElementById('recoveryStep2').style.display = 'none';
         }
 
         function showDashboard(user) {
             document.getElementById('loginSection').style.display = 'none';
             document.getElementById('registerSection').style.display = 'none';
+            document.getElementById('recoverySection').style.display = 'none';
             document.getElementById('dashboardSection').style.display = 'block';
+            document.getElementById('userEmail').textContent = user.email;
+        }
+
+        // Authentication functions
+        async function handleRegister(event) {
+            event.preventDefault();
             
-            // Update dashboard with user data
-            const dashboardHeader = document.querySelector('.dashboard-header h2');
-            dashboardHeader.textContent = `Добро пожаловать, ${user.name}!`;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                showError('Пароли не совпадают');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    localStorage.setItem('token', data.token);
+                    showSuccess('Регистрация успешна!');
+                    showDashboard(data.user);
+                } else {
+                    showError(data.message);
+                }
+            } catch (error) {
+                console.error('Registration error:', error);
+                showError('Ошибка сервера. Попробуйте позже');
+            }
         }
 
-        function hideDashboard() {
-            document.getElementById('dashboardSection').style.display = 'none';
-            document.getElementById('loginSection').style.display = 'block';
+        async function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    localStorage.setItem('token', data.token);
+                    showSuccess('Вход выполнен успешно!');
+                    showDashboard(data.user);
+                } else {
+                    showError(data.message);
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                showError('Ошибка сервера. Попробуйте позже');
+            }
         }
 
+        async function handleLogout() {
+            localStorage.removeItem('token');
+            switchToLogin();
+            showSuccess('Выход выполнен успешно');
+        }
+
+        async function checkAuthStatus() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                switchToLogin();
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/user`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (response.ok) {
+                    const user = await response.json();
+                    showDashboard(user);
+                } else {
+                    localStorage.removeItem('token');
+                    switchToLogin();
+                }
+            } catch (error) {
+                console.error('Auth check error:', error);
+                localStorage.removeItem('token');
+                switchToLogin();
+            }
+        }
+
+        // Password recovery functions
+        async function handleRecoveryRequest(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('recoveryEmail').value;
+            localStorage.setItem('recoveryEmail', email);
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/request-reset`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showSuccess(data.message);
+                    document.getElementById('recoveryStep1').style.display = 'none';
+                    document.getElementById('recoveryStep2').style.display = 'block';
+                } else {
+                    showError(data.message);
+                }
+            } catch (error) {
+                console.error('Recovery request error:', error);
+                showError('Ошибка сервера. Попробуйте позже');
+            }
+        }
+
+        async function handlePasswordReset(event) {
+            event.preventDefault();
+            
+            const email = localStorage.getItem('recoveryEmail');
+            const token = document.getElementById('resetToken').value;
+            const password = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmNewPassword').value;
+
+            if (!email) {
+                showError('Email не найден. Пожалуйста, начните процесс восстановления заново');
+                switchToRecovery();
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                showError('Пароли не совпадают');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/reset-password`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        token: token,
+                        password: password
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    localStorage.removeItem('recoveryEmail');
+                    showSuccess('Пароль успешно обновлен!');
+                    setTimeout(() => switchToLogin(), 2000);
+                } else {
+                    showError(data.message);
+                }
+            } catch (error) {
+                console.error('Password reset error:', error);
+                showError('Ошибка сервера. Попробуйте позже');
+            }
+        }
+
+        // UI helper functions
         function showError(message) {
             const errorDiv = document.createElement('div');
-            errorDiv.className = 'error-message';
-            errorDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
+            errorDiv.className = 'alert alert-error';
+            errorDiv.textContent = message;
             
-            const form = document.querySelector('form:not([style*="display: none"])');
-            const existingError = form.querySelector('.error-message');
-            if (existingError) {
-                existingError.remove();
+            // Remove any existing alerts
+            document.querySelectorAll('.alert').forEach(alert => alert.remove());
+            
+            // Insert the error alert at the top of the form
+            const activeSection = document.querySelector('.account-section[style*="block"]');
+            if (activeSection) {
+                const form = activeSection.querySelector('form');
+                if (form) {
+                    form.insertBefore(errorDiv, form.firstChild);
+                }
             }
             
-            form.insertBefore(errorDiv, form.firstChild);
-            
+            // Auto-remove after 5 seconds
             setTimeout(() => {
                 errorDiv.remove();
+            }, 5000);
+        }
+
+        function showSuccess(message) {
+            const successDiv = document.createElement('div');
+            successDiv.className = 'alert alert-success';
+            successDiv.textContent = message;
+            
+            // Remove any existing alerts
+            document.querySelectorAll('.alert').forEach(alert => alert.remove());
+            
+            // Insert the success alert at the top of the form
+            const activeSection = document.querySelector('.account-section[style*="block"]');
+            if (activeSection) {
+                const form = activeSection.querySelector('form');
+                if (form) {
+                    form.insertBefore(successDiv, form.firstChild);
+                }
+            }
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                successDiv.remove();
             }, 5000);
         }
     </script>
