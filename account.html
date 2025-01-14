@@ -7,6 +7,69 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Toggle Switch Styles */
+    .toggle-switch {
+        display: flex;
+        align-items: center;
+        margin: 15px 0;
+        padding: 10px;
+        background: #f8f9fa;
+        border-radius: 6px;
+    }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+        margin-right: 10px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 24px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: #16a34a;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+    .subsection {
+        transition: opacity 0.3s ease;
+    }
+
+    .subsection.hidden {
+        display: none;
+    }
         * {
             margin: 0;
             padding: 0;
@@ -238,6 +301,48 @@
             color: white;
             margin: 0;
         }
+
+        .modules-section {
+            margin-top: 2rem;
+        }
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .module-card {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 8px;
+            background: white;
+        }
+        .module-card h4 {
+            margin: 0 0 0.5rem 0;
+        }
+        .module-card .price {
+            font-weight: bold;
+            color: #2c5282;
+        }
+        .module-card button {
+            width: 100%;
+            padding: 0.5rem;
+            background: #4299e1;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .module-card button:disabled {
+            background: #a0aec0;
+            cursor: not-allowed;
+        }
+        .module-card.purchased {
+            border-color: #48bb78;
+        }
+        .module-card.purchased button {
+            background: #48bb78;
+        }
     </style>
 </head>
 <body>
@@ -430,6 +535,36 @@ Journey Map (CJM)</a></li>
                     <div class="user-info">
                         <p><i class="fas fa-envelope"></i> Email: <span id="userEmail"></span></p>
                         <p><i class="fas fa-circle" style="color: #16a34a"></i> Статус: Активный</p>
+                        <p>Баланс: <span id="userBalance">0</span> ₽</p>
+                    </div>
+                    <div class="modules-section">
+                        <h3>Доступные модули</h3>
+                        <div class="module-grid">
+                            <div class="module-card" data-module="finance">
+                                <h4>Финансы</h4>
+                                <p>Управление финансами и отчетность</p>
+                                <p class="price">5000 ₽</p>
+                                <button onclick="purchaseModule('finance', 5000)" id="financeBtn">Купить</button>
+                            </div>
+                            <div class="module-card" data-module="marketing">
+                                <h4>Маркетинг</h4>
+                                <p>Маркетинговые инструменты и аналитика</p>
+                                <p class="price">4000 ₽</p>
+                                <button onclick="purchaseModule('marketing', 4000)" id="marketingBtn">Купить</button>
+                            </div>
+                            <div class="module-card" data-module="sales">
+                                <h4>Продажи</h4>
+                                <p>Управление продажами и CRM</p>
+                                <p class="price">4500 ₽</p>
+                                <button onclick="purchaseModule('sales', 4500)" id="salesBtn">Купить</button>
+                            </div>
+                            <div class="module-card" data-module="personnel">
+                                <h4>Персонал</h4>
+                                <p>Управление персоналом и HR</p>
+                                <p class="price">3500 ₽</p>
+                                <button onclick="purchaseModule('personnel', 3500)" id="personnelBtn">Купить</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -462,6 +597,9 @@ Journey Map (CJM)</a></li>
         </div>
     </footer>
 
+    <script src="script.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/navigation.js"></script>
     <script>
         const API_BASE_URL = 'http://localhost:5000';
         
@@ -473,7 +611,7 @@ Journey Map (CJM)</a></li>
         if (token) {
             checkAuthStatus();
         }
-        
+
         // Section switching functions
         function switchToLogin() {
             document.getElementById('loginSection').style.display = 'block';
@@ -504,6 +642,7 @@ Journey Map (CJM)</a></li>
             document.getElementById('recoverySection').style.display = 'none';
             document.getElementById('dashboardSection').style.display = 'block';
             document.getElementById('userEmail').textContent = user.email;
+            document.getElementById('userBalance').textContent = user.balance;
         }
 
         // Authentication functions
@@ -685,6 +824,49 @@ Journey Map (CJM)</a></li>
             }
         }
 
+        // Module purchase function
+        async function purchaseModule(module, price) {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                showError('Вы не авторизованы. Пожалуйста, войдите в систему');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/purchase-module`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ module, price })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showSuccess('Модуль успешно куплен!');
+                    const balance = document.getElementById('userBalance');
+                    balance.textContent = data.balance;
+                    const moduleCard = document.querySelector(`.module-card[data-module="${module}"]`);
+                    moduleCard.classList.add('purchased');
+                    const button = moduleCard.querySelector('button');
+                    button.disabled = true;
+                    button.textContent = 'Куплено';
+                    
+                    // Refresh the page after a short delay to show the success message
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1500);
+                } else {
+                    showError(data.message);
+                }
+            } catch (error) {
+                console.error('Module purchase error:', error);
+                showError('Ошибка сервера. Попробуйте позже');
+            }
+        }
+
         // UI helper functions
         function showError(message) {
             const errorDiv = document.createElement('div');
@@ -731,6 +913,51 @@ Journey Map (CJM)</a></li>
                 successDiv.remove();
             }, 5000);
         }
+
+        // Toggle subsections visibility
+        function toggleSubsections(show) {
+            // Save preference to localStorage
+            localStorage.setItem('showSubsections', show);
+            
+            // Refresh the page to apply changes immediately
+            window.location.reload();
+        }
+
+        // Load user's preference on page load
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Check auth status first
+            const token = localStorage.getItem('token');
+            if (token) {
+                checkAuthStatus();
+                
+                // Fetch and display user's purchased modules
+                try {
+                    const response = await fetch(`${API_BASE_URL}/api/user-modules`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        const purchasedModules = data.modules || [];
+                        
+                        // Update module cards
+                        purchasedModules.forEach(module => {
+                            const moduleCard = document.querySelector(`.module-card[data-module="${module}"]`);
+                            if (moduleCard) {
+                                moduleCard.classList.add('purchased');
+                                const button = moduleCard.querySelector('button');
+                                button.disabled = true;
+                                button.textContent = 'Куплено';
+                            }
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error fetching user modules:', error);
+                }
+            }
+        });
     </script>
 </body>
 </html>

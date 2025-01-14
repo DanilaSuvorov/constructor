@@ -43,15 +43,28 @@ def init_db():
     conn = sqlite3.connect(DATABASE_PATH)
     cursor = conn.cursor()
     
-    # Create users table
+    # Create users table with balance
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         email TEXT UNIQUE NOT NULL,
         password TEXT NOT NULL,
+        balance INTEGER DEFAULT 10000,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         reset_token TEXT,
         reset_token_expires TIMESTAMP
+    )
+    ''')
+    
+    # Create user_modules table for tracking purchased modules
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS user_modules (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER,
+        module_name TEXT NOT NULL,
+        purchased_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id) REFERENCES users (id),
+        UNIQUE(user_id, module_name)
     )
     ''')
     
@@ -305,13 +318,82 @@ def reset_password():
         db.rollback()
         return jsonify({'message': 'Ошибка при сбросе пароля', 'error': str(e)}), 500
 
-@app.route('/api/user')
+@app.route('/api/user', methods=['GET'])
 @token_required
 def get_user(current_user):
+    db = get_db()
+    cursor = db.cursor()
+    
+    # Get user info including balance
+    cursor.execute('SELECT id, email, balance FROM users WHERE id = ?', (current_user['id'],))
+    user_data = cursor.fetchone()
+    
+    # Get user's purchased modules
+    cursor.execute('SELECT module_name FROM user_modules WHERE user_id = ?', (current_user['id'],))
+    modules = [row[0] for row in cursor.fetchall()]
+    
     return jsonify({
-        'id': current_user[0],
-        'email': current_user[1]
+        'id': user_data[0],
+        'email': user_data[1],
+        'balance': user_data[2],
+        'modules': modules
     })
+
+@app.route('/api/user-modules', methods=['GET'])
+@token_required
+def get_user_modules(current_user):
+    db = get_db()
+    cursor = db.cursor()
+    
+    cursor.execute('SELECT module_name FROM user_modules WHERE user_id = ?', (current_user['id'],))
+    modules = [row[0] for row in cursor.fetchall()]
+    
+    return jsonify({
+        'modules': modules
+    })
+
+@app.route('/api/purchase-module', methods=['POST'])
+@token_required
+def purchase_module(current_user):
+    data = request.get_json()
+    module = data.get('module')
+    price = data.get('price')
+    
+    if not module or not price:
+        return jsonify({'message': 'Missing module or price'}), 400
+    
+    db = get_db()
+    cursor = db.cursor()
+    
+    # Check if module is already purchased
+    cursor.execute('SELECT 1 FROM user_modules WHERE user_id = ? AND module_name = ?', 
+                  (current_user['id'], module))
+    if cursor.fetchone():
+        return jsonify({'message': 'Module already purchased'}), 400
+    
+    # Check user's balance
+    cursor.execute('SELECT balance FROM users WHERE id = ?', (current_user['id'],))
+    balance = cursor.fetchone()[0]
+    
+    if balance < price:
+        return jsonify({'message': 'Insufficient balance'}), 400
+    
+    try:
+        # Update balance and record purchase
+        new_balance = balance - price
+        cursor.execute('UPDATE users SET balance = ? WHERE id = ?', 
+                      (new_balance, current_user['id']))
+        cursor.execute('INSERT INTO user_modules (user_id, module_name) VALUES (?, ?)',
+                      (current_user['id'], module))
+        db.commit()
+        
+        return jsonify({
+            'message': 'Module purchased successfully',
+            'balance': new_balance
+        })
+    except sqlite3.Error as e:
+        db.rollback()
+        return jsonify({'message': 'Database error occurred'}), 500
 
 @app.route('/')
 def serve_index():
