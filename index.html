@@ -168,16 +168,8 @@ Journey Map (CJM)</a></li>
                 <h2>Получить консультацию</h2>
                 <form id="feedbackForm" onsubmit="submitFeedbackForm(event)">
                     <div class="form-group">
-                        <label for="name">Наименование компании</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
                         <label for="name">Ваше имя</label>
                         <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Ваша должность</label>
-                        <input type="tel" id="phone" name="phone" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Ваш контакт на выбор(почта, мессенджер)</label>
@@ -485,13 +477,22 @@ Journey Map (CJM)</a></li>
 
         <section class="company-blocks">
             <div class="company-block">
-                <h3>Конструктор – ваш индивидуальный бизнес-консультант в одном приложении</h3>
+                <h3>Вы - коммерческий директор или РОП</h3>
             </div>
             
             <div class="company-block">
                 <h3>Конструктор - это:</h3>
                 <ul>
-                    <li>краткая выжимка из огромного объема знаний;</li>
+                    <li>готовое комплексное решение, чтобы поставить систему мощных продаж в вашей компании;</li>
+                    <li>ваша экспертность как ответственного за управление продажами, доходами бизнеса;</li>
+                    <li>возможность повысить вашу стоимость как профессионального управленца</li>
+                </ul>
+            </div>
+
+            <div class="company-block">
+                <h3>Конструктор - это:</h3>
+                <ul>
+                    <li>краткая суть из огромного объема знаний;</li>
                     <li>успешный  опыт, проверенный на практике за многие годы и в разных странах;</li>
                     <li>готовый к внедрению процесс</li>
                 </ul>
@@ -516,7 +517,7 @@ Journey Map (CJM)</a></li>
 
             <div class="company-block">
                 <h3>Для кого нужен Конструктор?</h3>
-                <p>Владелец бизнеса, коммерческий директор, руководитель отдела продаж</p>
+                <p>Коммерческий директор, руководитель отдела продаж</p>
             </div>
         </section>
 
@@ -672,6 +673,209 @@ Journey Map (CJM)</a></li>
                 }
             }
         </style>
+        <section class="test-block">
+            <div class="test-content">
+                <h2>Пройдите наш тест</h2>
+                <p>Узнайте, какие услуги консалтинга наиболее подходят для вашего бизнеса. Ответьте на несколько вопросов и получите персональные рекомендации.</p>
+                <a href="test.html" class="test-button">
+                    <span class="button-text">Начать тест</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+        <style>
+            .test-block {
+                padding: 4rem 2rem;
+                background: linear-gradient(135deg, #ffffff 0%, #f0f2ff 100%);
+                margin: 2rem 0;
+            }
+
+            .test-content {
+                max-width: 800px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .test-content h2 {
+                color: #333;
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .test-content p {
+                color: #666;
+                font-size: 1.2rem;
+                line-height: 1.6;
+                margin-bottom: 2rem;
+            }
+
+            .test-button {
+                display: inline-flex;
+                align-items: center;
+                padding: 1rem 2rem;
+                background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+                color: white;
+                text-decoration: none;
+                border-radius: 50px;
+                font-weight: 600;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .test-button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(74, 144, 226, 0.3);
+            }
+
+            .button-text {
+                margin-right: 10px;
+            }
+
+            .test-button i {
+                font-size: 1.1rem;
+                transition: transform 0.3s ease;
+            }
+
+            .test-button:hover i {
+                transform: translateX(5px);
+            }
+        </style>
+
+        <div class="decision-tree-section">
+            <div class="section-header">
+                <h2>Подберите решение для вашего бизнеса</h2>
+                <p>Ответьте на несколько вопросов, и мы поможем определить, какие услуги консалтинга наиболее подходят для вашей компании.</p>
+            </div>
+
+            <div class="decision-path">
+                <div class="path-container">
+                    <p class="path-label">Ваш путь:</p>
+                    <div id="selected-path"></div>
+                </div>
+            </div>
+            
+            <div class="tree-container">
+                <div id="decision-tree" class="decision-tree-container">
+                    <!-- Tree content will be inserted by JavaScript -->
+                </div>
+            </div>
+        </div>
+        <style>
+            .decision-tree-section {
+                padding: 6rem 2rem;
+                background: linear-gradient(135deg, #f8f9ff 0%, #e8ebff 100%);
+                overflow: hidden;
+                margin: 2rem 0;
+            }
+
+            .decision-tree-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: linear-gradient(to right, transparent, rgba(0, 102, 204, 0.2), transparent);
+            }
+
+            .decision-tree-section::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 200px;
+                background: linear-gradient(to bottom, transparent, rgba(0, 102, 204, 0.03));
+                pointer-events: none;
+            }
+
+            .decision-tree-section .container {
+                max-width: 900px;
+                margin: 0 auto;
+                text-align: center;
+                position: relative;
+                z-index: 2;
+            }
+
+            .section-header {
+                margin-bottom: 3rem;
+                position: relative;
+            }
+
+            .section-badge {
+                display: inline-block;
+                padding: 0.5rem 1.5rem;
+                background: linear-gradient(135deg, #0066cc 0%, #3399ff 100%);
+                color: white;
+                border-radius: 25px;
+                font-size: 0.9rem;
+                font-weight: 500;
+                margin-bottom: 1.5rem;
+                box-shadow: 0 4px 15px rgba(0, 102, 204, 0.2);
+                transform: translateY(0);
+                transition: all 0.3s ease;
+            }
+
+            .section-badge:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(0, 102, 204, 0.3);
+            }
+
+            .decision-tree-section h2 {
+                color: #1a1a1a;
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+                font-weight: 600;
+                line-height: 1.3;
+                background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .decision-tree-section p {
+                color: #666666;
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+                line-height: 1.8;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .decision-tree-container {
+                background: rgba(255, 255, 255, 0.9);
+                padding: 2rem;
+                border-radius: 15px;
+                box-shadow: 0 8px 25px rgba(0, 102, 204, 0.1);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(0, 102, 204, 0.1);
+                transition: all 0.3s ease;
+            }
+
+            .decision-tree-container:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 30px rgba(0, 102, 204, 0.15);
+            }
+
+            @media (max-width: 768px) {
+                .decision-tree-section {
+                    padding: 4rem 1.5rem;
+                    margin: 1rem 0;
+                }
+
+                .decision-tree-section h2 {
+                    font-size: 2rem;
+                }
+
+                .decision-tree-section p {
+                    font-size: 1.1rem;
+                }
+
+                .section-badge {
+                    padding: 0.4rem 1.2rem;
+                    font-size: 0.85rem;
+                }
+            }
+        </style>
     </main>
 
     <footer>
@@ -723,5 +927,6 @@ Journey Map (CJM)</a></li>
         }
     </style>
     <script src="js/navigation.js"></script>
+    <script src="js/decisionTree.js"></script>
 </body>
 </html>

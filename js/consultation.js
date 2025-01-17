@@ -19,16 +19,8 @@ function addConsultationButton() {
             <h2>Получить консультацию</h2>
             <form id="feedbackForm" onsubmit="submitFeedbackForm(event)">
                 <div class="form-group">
-                    <label for="name">Наименование компании</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
                     <label for="name">Ваше имя</label>
                     <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Ваша должность</label>
-                    <input type="tel" id="phone" name="phone" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Ваш контакт на выбор(почта, мессенджер)</label>
