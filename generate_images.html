@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Product Images</title>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600" style="display: none;"></canvas>
+    <script>
+        const products = [
+            { path: 'finance/financial-planning.jpg', title: 'Финансовое планирование', color: '#4299E1' },
+            { path: 'finance/budget-analysis.jpg', title: 'Бюджетный анализ', color: '#48BB78' },
+            { path: 'marketing/social-media.jpg', title: 'Социальные медиа', color: '#ED64A6' },
+            { path: 'marketing/email-marketing.jpg', title: 'Email маркетинг', color: '#9F7AEA' },
+            { path: 'sales/crm-system.jpg', title: 'CRM система', color: '#F6AD55' },
+            { path: 'sales/sales-analytics.jpg', title: 'Аналитика продаж', color: '#FC8181' },
+            { path: 'personnel/hr-management.jpg', title: 'HR управление', color: '#4FD1C5' },
+            { path: 'personnel/recruitment.jpg', title: 'Рекрутинг', color: '#667EEA' }
+        ];
+
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        function generateImage(title, color) {
+            // Clear canvas
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw background
+            ctx.fillStyle = color;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw title
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 48px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            // Word wrap the title
+            const words = title.split(' ');
+            let lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                const word = words[i];
+                const width = ctx.measureText(currentLine + " " + word).width;
+                if (width < canvas.width - 40) {
+                    currentLine += " " + word;
+                } else {
+                    lines.push(currentLine);
+                    currentLine = word;
+                }
+            }
+            lines.push(currentLine);
+
+            // Draw each line
+            const lineHeight = 60;
+            const startY = canvas.height/2 - (lines.length - 1) * lineHeight/2;
+            lines.forEach((line, index) => {
+                ctx.fillText(line, canvas.width/2, startY + index * lineHeight);
+            });
+
+            // Add some decorative elements
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 5;
+            ctx.beginPath();
+            ctx.moveTo(40, 40);
+            ctx.lineTo(canvas.width - 40, 40);
+            ctx.moveTo(40, canvas.height - 40);
+            ctx.lineTo(canvas.width - 40, canvas.height - 40);
+            ctx.stroke();
+
+            return canvas.toDataURL('image/jpeg', 0.8);
+        }
+
+        // Generate all images
+        products.forEach(product => {
+            const dataUrl = generateImage(product.title, product.color);
+            const link = document.createElement('a');
+            link.download = product.path.split('/').pop();
+            link.href = dataUrl;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
+</body>
+</html>

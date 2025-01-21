@@ -7,69 +7,81 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
+        .logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
         /* Toggle Switch Styles */
-    .toggle-switch {
-        display: flex;
-        align-items: center;
-        margin: 15px 0;
-        padding: 10px;
-        background: #f8f9fa;
-        border-radius: 6px;
-    }
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
 
-    .switch {
-        position: relative;
-        display: inline-block;
-        width: 50px;
-        height: 24px;
-        margin-right: 10px;
-    }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+            margin-right: 10px;
+        }
 
-    .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
 
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: .4s;
-        border-radius: 24px;
-    }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
 
-    .slider:before {
-        position: absolute;
-        content: "";
-        height: 16px;
-        width: 16px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        transition: .4s;
-        border-radius: 50%;
-    }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
 
-    input:checked + .slider {
-        background-color: #16a34a;
-    }
+        input:checked + .slider {
+            background-color: #16a34a;
+        }
 
-    input:checked + .slider:before {
-        transform: translateX(26px);
-    }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
 
-    .subsection {
-        transition: opacity 0.3s ease;
-    }
+        .subsection {
+            transition: opacity 0.3s ease;
+        }
 
-    .subsection.hidden {
-        display: none;
-    }
+        .subsection.hidden {
+            display: none;
+        }
+
+        /* Base styles */
         * {
             margin: 0;
             padding: 0;
@@ -77,397 +89,617 @@
         }
 
         body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .container {
+            width: 100%;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
         }
 
         .main-content {
+            width: 100%;
             flex: 1;
+            display: flex;
+        }
+
+        /* Auth styles */
+        #authSection {
+            display: none;
+            width: 100%;
+            min-height: calc(100vh - 60px);
+        }
+
+        #authSection.active {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
         }
 
         .auth-container {
+            width: 100%;
+            max-width: 400px;
             background: white;
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
+            margin: 2rem;
         }
 
-        .auth-title {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo img {
-            height: 40px;
-            width: auto;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .form-group i {
-            position: absolute;
-            left: 10px;
-            top: 38px;
-            color: #666;
-            line-height: 1;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 10px 10px 10px 35px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-            line-height: 1.5;
-            height: 40px;
-        }
-
-        .auth-button {
-            width: 100%;
-            padding: 12px;
-            background: #0066cc;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .auth-button:hover {
-            background: #0052a3;
-        }
-
-        .auth-links {
-            margin-top: 1rem;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .auth-link {
-            color: #0066cc;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .auth-link:hover {
-            text-decoration: underline;
-        }
-
-        .alert {
-            padding: 12px;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            font-size: 14px;
-            text-align: center;
-        }
-
-        .alert-error {
-            background: #fee2e2;
-            color: #dc2626;
-        }
-
-        .alert-success {
-            background: #dcfce7;
-            color: #16a34a;
-        }
-
-        .account-section {
+        #dashboardSection {
             display: none;
+            width: 100%;
+            min-height: 100vh;
+            background-color: #f8fafc;
         }
 
-        .account-section.active {
+        #dashboardSection.active {
             display: block;
         }
 
-        /* Dashboard styles */
         .dashboard-container {
-            background: white;
+            width: 100%;
+            max-width: 100%;
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
         }
 
         .dashboard-header {
+            width: 100%;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
         }
 
         .dashboard-title {
-            font-size: 24px;
-            color: #333;
+            font-size: 1.8rem;
+            color: #1a202c;
+            font-weight: 600;
+            margin: 0;
         }
 
         .logout-btn {
-            padding: 8px 16px;
-            background: #dc2626;
+            padding: 0.75rem 1.5rem;
+            background: #ef4444;
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .logout-btn:hover {
-            background: #b91c1c;
+            background: #dc2626;
         }
 
         .user-info {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 4px;
+            width: 100%;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
         }
 
         .user-info p {
-            margin: 0.5rem 0;
-            color: #555;
+            margin: 0;
+            color: #4a5568;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
-        .modules-section {
-            margin-top: 2rem;
+
+        .user-info p i {
+            font-size: 1.2rem;
+            color: #3182ce;
+            width: 20px;
+            text-align: center;
         }
-        .module-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
+
+        .user-info .balance {
+            font-weight: 600;
+            color: #2d3748;
         }
-        .module-card {
-            border: 1px solid #ddd;
-            padding: 1rem;
-            border-radius: 8px;
+
+        /* Store Section and Carousel Core Styles */
+        .store-section {
+            position: relative;
+            margin-bottom: 60px;
+            padding: 0 20px;
+        }
+
+        .store-section h3 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #2d3748;
+        }
+
+        .carousel-container {
+            position: relative;
+            padding: 0 50px;
+            margin-bottom: 50px;
+        }
+
+        .carousel-track-container {
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            padding: 0 15px;
+        }
+
+        /* Product Card Styles */
+        .product-card {
             background: white;
-        }
-        .module-card h4 {
-            margin: 0 0 0.5rem 0;
-        }
-        .module-card .price {
-            font-weight: bold;
-            color: #2c5282;
-        }
-        .module-card button {
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
             width: 100%;
-            padding: 0.5rem;
-            background: #4299e1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            color: #4a5568;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 20px;
+        }
+
+        .buy-button {
+            width: 100%;
+            padding: 12px;
+            background: #3182ce;
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
             cursor: pointer;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
-        .module-card button:disabled {
-            background: #a0aec0;
-            cursor: not-allowed;
+
+        .buy-button:hover {
+            background: #2c5282;
         }
-        .module-card.purchased {
-            border-color: #48bb78;
+
+        /* Navigation Controls */
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3182ce;
+            transition: all 0.3s ease;
         }
-        .module-card.purchased button {
-            background: #48bb78;
+
+        .carousel-button:hover {
+            background: #3182ce;
+            color: white;
+        }
+
+        .carousel-button.prev {
+            left: 0;
+        }
+
+        .carousel-button.next {
+            right: 0;
+        }
+
+        /* Dots Navigation */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+            position: absolute;
+            bottom: -30px;
+            width: 100%;
+            left: 0;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cbd5e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+        }
+
+        .carousel-dot:hover {
+            background: #3182ce80;
+        }
+
+        .carousel-dot.active {
+            background: #3182ce;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .store-section {
+                padding: 0 15px;
+            }
+
+            .carousel-container {
+                padding: 0 40px;
+            }
+
+            .product-card {
+                padding: 20px;
+            }
+
+            .product-image {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .store-section {
+                padding: 0 20px;
+            }
+            
+            .carousel-container {
+                padding: 0 30px;
+            }
+        }
+
+        /* Product Card Styles */
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-image:hover {
+            transform: scale(1.02);
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .product-description {
+            color: #4a5568;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-price::before {
+            content: "₽";
+            font-size: 1rem;
+            color: #718096;
+        }
+
+        .buy-button {
+            width: 100%;
+            padding: 0.75rem 1.5rem;
+            background: #3182ce;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .buy-button:hover {
+            background: #2c5282;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .buy-button:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        @media (max-width: 768px) {
+            .product-image {
+                height: 160px;
+            }
+
+            .product-title {
+                font-size: 1.1rem;
+            }
+
+            .product-price {
+                font-size: 1.25rem;
+            }
+
+            .buy-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        .product-card {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="images/logo.png" alt="Consulting Co. Logo">
-        </div>
-        <nav>
-            <a href="index.html">Главная</a>
-            <div class="dropdown">
-                <a href="finance/finance.html" class="dropdown-toggle">Финансы</a>
-                <div class="dropdown-menu">
-                    <ul>
-                        <li><a href="finance/balanced-scorecard.html">Разработка Balanced
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="images/logo.png" alt="Consulting Co. Logo">
+            </div>
+            <nav>
+                <a href="index.html">Главная</a>
+                <div class="dropdown">
+                    <a href="finance/finance.html" class="dropdown-toggle">Финансы</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="finance/balanced-scorecard.html">Разработка Balanced
 Scorecard - стратегического инструмента
 управления бизнесом</a></li>
-                        <li><a href="finance/p-n-l.html">Разработка P&L (Profit
+                            <li><a href="finance/p-n-l.html">Разработка P&L (Profit
 and loss statement) - отчёта о прибылях и
 убытках</a></li>
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="dropdown">
-                <a href="sales/sales.html" class="dropdown-toggle">Продажи</a>
-                <div class="dropdown-menu">
-                    <ul>
-                        <li><a href="sales/control-system.html">Система контроля и
+                <div class="dropdown">
+                    <a href="sales/sales.html" class="dropdown-toggle">Продажи</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="sales/control-system.html">Система контроля и
 оценки эффективности</a></li>
-                        <li><a href="sales/sales-methodology.html">Разработка и внедрение
+                            <li><a href="sales/sales-methodology.html">Разработка и внедрение
 методики продаж</a></li>
-                        <li><a href="sales/crm.html">Автоматизация продаж
+                            <li><a href="sales/crm.html">Автоматизация продаж
 на базе CRM</a></li>
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="dropdown">
-                <a href="marketing/marketing.html" class="dropdown-toggle">Маркетинг</a>
-                <div class="dropdown-menu">
-                    <ul>
-                        <li><a href="marketing/customer-segmentation.html">Сегментация клиентов</a></li>
-                        <li><a href="marketing/market-capacity.html">Расчет емкости рынка</a></li>
-                        <li><a href="marketing/cjm.html">Формирование Client
+                <div class="dropdown">
+                    <a href="marketing/marketing.html" class="dropdown-toggle">Маркетинг</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="marketing/customer-segmentation.html">Сегментация клиентов</a></li>
+                            <li><a href="marketing/market-capacity.html">Расчет емкости рынка</a></li>
+                            <li><a href="marketing/cjm.html">Формирование Client
 Journey Map (CJM)</a></li>
-                        <li><a href="marketing/compres.html">Проведение
+                            <li><a href="marketing/compres.html">Проведение
 исследований конкурентов</a></li>
-                        <li><a href="marketing/strategy-development.html">Разработка стратегии
+                            <li><a href="marketing/strategy-development.html">Разработка стратегии
 развития</a></li>
-                        <li><a href="marketing/custdev.html">Проведение
+                            <li><a href="marketing/custdev.html">Проведение
 исследований клиентов (custdev)</a></li>
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="dropdown">
-                <a href="personnel/personnel.html" class="dropdown-toggle">Персонал</a>
-                <div class="dropdown-menu">
-                    <ul>
-                        <li><a href="personnel/motivation-system.html">Система мотивации</a></li>
-                        <li><a href="personnel/grade-system.html">Разработка системы
+                <div class="dropdown">
+                    <a href="personnel/personnel.html" class="dropdown-toggle">Персонал</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="personnel/motivation-system.html">Система мотивации</a></li>
+                            <li><a href="personnel/grade-system.html">Разработка системы
 грейдов</a></li>
-                        <li><a href="personnel/engagement-management.html">Управление
+                            <li><a href="personnel/engagement-management.html">Управление
 вовлеченностью</a></li>
-                        <li><a href="personnel/recruitment-system.html">Система найма</a></li>
-                    </ul>
+                            <li><a href="personnel/recruitment-system.html">Система найма</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="account.html" class="dropdown-toggle">Личный кабинет</a>
+                </div>
+            </nav>
+        </header>
+        <main class="main-content">
+            <div id="authSection" class="active">
+                <div class="auth-container">
+                    <!-- Login Section -->
+                    <section id="loginSection" class="account-section active">
+                        <h2 class="auth-title">Вход в систему</h2>
+                        <form onsubmit="handleLogin(event)">
+                            <div class="form-group">
+                                <label for="loginEmail">Email</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="loginEmail" class="auth-input" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">Пароль</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="loginPassword" class="auth-input" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="auth-button">Войти</button>
+                            <div class="auth-links">
+                                <a class="auth-link" onclick="switchToRegister()">Зарегистрироваться</a>
+                                <span style="margin: 0 8px; color: #999;">|</span>
+                                <a class="auth-link" onclick="switchToRecovery()">Забыли пароль?</a>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!-- Register Section -->
+                    <section id="registerSection" class="account-section">
+                        <h2 class="auth-title">Регистрация</h2>
+                        <form onsubmit="handleRegister(event)">
+                            <div class="form-group">
+                                <label for="registerEmail">Email</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="registerEmail" class="auth-input" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="registerPassword">Пароль</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="registerPassword" class="auth-input" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Подтвердите пароль</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" id="confirmPassword" class="auth-input" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="auth-button">Зарегистрироваться</button>
+                            <div class="auth-links">
+                                <a class="auth-link" onclick="switchToLogin()">Уже есть аккаунт? Войти</a>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!-- Recovery Section -->
+                    <section id="recoverySection" class="account-section">
+                        <h2 class="auth-title">Восстановление пароля</h2>
+                        <div id="recoveryStep1">
+                            <form onsubmit="handleRecoveryRequest(event)">
+                                <div class="form-group">
+                                    <label for="recoveryEmail">Email</label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-envelope"></i>
+                                        <input type="email" id="recoveryEmail" class="auth-input" required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="auth-button">Отправить код</button>
+                                <div class="auth-links">
+                                    <a class="auth-link" onclick="switchToLogin()">Вернуться к входу</a>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="recoveryStep2" style="display: none;">
+                            <form onsubmit="handlePasswordReset(event)">
+                                <div class="form-group">
+                                    <label for="resetToken">Код из email</label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-key"></i>
+                                        <input type="text" id="resetToken" class="auth-input" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">Новый пароль</label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-lock"></i>
+                                        <input type="password" id="newPassword" class="auth-input" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmNewPassword">Подтвердите пароль</label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-lock"></i>
+                                        <input type="password" id="confirmNewPassword" class="auth-input" required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="auth-button">Сбросить пароль</button>
+                                <div class="auth-links">
+                                    <a class="auth-link" onclick="switchToLogin()">Вернуться к входу</a>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
                 </div>
             </div>
-            <div class="dropdown">
-                <a href="account.html" class="dropdown-toggle">Личный кабинет</a>
-            </div>
-        </nav>
-    </header>
-    <div class="main-content">
-        <div class="auth-container">
-            <!-- Login Section -->
-            <section id="loginSection" class="account-section active">
-                <h2 class="auth-title">Вход в систему</h2>
-                <form onsubmit="handleLogin(event)">
-                    <div class="form-group">
-                        <label for="loginEmail">Email</label>
-                        <div class="input-wrapper">
-                            <i class="fas fa-envelope"></i>
-                            <input type="email" id="loginEmail" class="auth-input" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="loginPassword">Пароль</label>
-                        <div class="input-wrapper">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" id="loginPassword" class="auth-input" required>
-                        </div>
-                    </div>
-                    <button type="submit" class="auth-button">Войти</button>
-                    <div class="auth-links">
-                        <a class="auth-link" onclick="switchToRegister()">Зарегистрироваться</a>
-                        <span style="margin: 0 8px; color: #999;">|</span>
-                        <a class="auth-link" onclick="switchToRecovery()">Забыли пароль?</a>
-                    </div>
-                </form>
-            </section>
-
-            <!-- Register Section -->
-            <section id="registerSection" class="account-section">
-                <h2 class="auth-title">Регистрация</h2>
-                <form onsubmit="handleRegister(event)">
-                    <div class="form-group">
-                        <label for="registerEmail">Email</label>
-                        <div class="input-wrapper">
-                            <i class="fas fa-envelope"></i>
-                            <input type="email" id="registerEmail" class="auth-input" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="registerPassword">Пароль</label>
-                        <div class="input-wrapper">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" id="registerPassword" class="auth-input" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="confirmPassword">Подтвердите пароль</label>
-                        <div class="input-wrapper">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" id="confirmPassword" class="auth-input" required>
-                        </div>
-                    </div>
-                    <button type="submit" class="auth-button">Зарегистрироваться</button>
-                    <div class="auth-links">
-                        <a class="auth-link" onclick="switchToLogin()">Уже есть аккаунт? Войти</a>
-                    </div>
-                </form>
-            </section>
-
-            <!-- Recovery Section -->
-            <section id="recoverySection" class="account-section">
-                <h2 class="auth-title">Восстановление пароля</h2>
-                <div id="recoveryStep1">
-                    <form onsubmit="handleRecoveryRequest(event)">
-                        <div class="form-group">
-                            <label for="recoveryEmail">Email</label>
-                            <div class="input-wrapper">
-                                <i class="fas fa-envelope"></i>
-                                <input type="email" id="recoveryEmail" class="auth-input" required>
-                            </div>
-                        </div>
-                        <button type="submit" class="auth-button">Отправить код</button>
-                        <div class="auth-links">
-                            <a class="auth-link" onclick="switchToLogin()">Вернуться к входу</a>
-                        </div>
-                    </form>
-                </div>
-                <div id="recoveryStep2" style="display: none;">
-                    <form onsubmit="handlePasswordReset(event)">
-                        <div class="form-group">
-                            <label for="resetToken">Код из email</label>
-                            <div class="input-wrapper">
-                                <i class="fas fa-key"></i>
-                                <input type="text" id="resetToken" class="auth-input" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="newPassword">Новый пароль</label>
-                            <div class="input-wrapper">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" id="newPassword" class="auth-input" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="confirmNewPassword">Подтвердите пароль</label>
-                            <div class="input-wrapper">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" id="confirmNewPassword" class="auth-input" required>
-                            </div>
-                        </div>
-                        <button type="submit" class="auth-button">Сбросить пароль</button>
-                        <div class="auth-links">
-                            <a class="auth-link" onclick="switchToLogin()">Вернуться к входу</a>
-                        </div>
-                    </form>
-                </div>
-            </section>
-
+            
             <!-- Dashboard Section -->
-            <section id="dashboardSection" class="account-section">
+            <div id="dashboardSection">
                 <div class="dashboard-container">
                     <div class="dashboard-header">
                         <h2 class="dashboard-title">Личный кабинет</h2>
@@ -475,71 +707,211 @@ Journey Map (CJM)</a></li>
                             <i class="fas fa-sign-out-alt"></i> Выйти
                         </button>
                     </div>
+                    
                     <div class="user-info">
                         <p><i class="fas fa-envelope"></i> Email: <span id="userEmail"></span></p>
                         <p><i class="fas fa-circle" style="color: #16a34a"></i> Статус: Активный</p>
-                        <p>Баланс: <span id="userBalance">0</span> ₽</p>
+                        <p class="balance"><i class="fas fa-wallet"></i> Баланс: <span id="userBalance">0</span> ₽</p>
                     </div>
-                    <div class="modules-section">
-                        <h3>Доступные модули</h3>
-                        <div class="module-grid">
-                            <div class="module-card" data-module="finance">
-                                <h4>Финансы</h4>
-                                <p>Управление финансами и отчетность</p>
-                                <p class="price">5000 ₽</p>
-                                <button onclick="purchaseModule('finance', 5000)" id="financeBtn">Купить</button>
+
+                    <!-- Store Sections -->
+                    <section class="store-section">
+                        <h3>Финансы</h3>
+                        <div class="carousel-container">
+                            <div class="carousel-track-container">
+                                <div class="carousel-track">
+                                    <div class="carousel-slide">
+                                        <div class="product-card">
+                                            <img src="images/finance/basic-package.jpg" alt="Базовый пакет Финансы" class="product-image">
+                                            <h4 class="product-title">Базовый пакет Финансы</h4>
+                                            <p class="product-description">Включает основные инструменты:
+                                            <ul>
+                                                <li>Отчет о прибылях и убытках</li>
+                                                <li>Баланс</li>
+                                                <li>Движение денежных средств</li>
+                                                <li>Бюджет доходов и расходов</li>
+                                            </ul>
+                                            </p>
+                                            <div class="product-price">15000</div>
+                                            <button class="buy-button" data-package="finance-basic">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Купить базовый пакет
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <div class="product-card">
+                                            <img src="images/finance/investment-analysis.jpg" alt="Инвестиционный анализ" class="product-image">
+                                            <h4 class="product-title">Инвестиционный анализ</h4>
+                                            <p class="product-description">Расширенный анализ инвестиционных проектов и их эффективности</p>
+                                            <div class="product-price">7000</div>
+                                            <button class="buy-button" data-package="finance-investment">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Купить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="module-card" data-module="marketing">
-                                <h4>Маркетинг</h4>
-                                <p>Маркетинговые инструменты и аналитика</p>
-                                <p class="price">4000 ₽</p>
-                                <button onclick="purchaseModule('marketing', 4000)" id="marketingBtn">Купить</button>
-                            </div>
-                            <div class="module-card" data-module="sales">
-                                <h4>Продажи</h4>
-                                <p>Управление продажами и CRM</p>
-                                <p class="price">4500 ₽</p>
-                                <button onclick="purchaseModule('sales', 4500)" id="salesBtn">Купить</button>
-                            </div>
-                            <div class="module-card" data-module="personnel">
-                                <h4>Персонал</h4>
-                                <p>Управление персоналом и HR</p>
-                                <p class="price">3500 ₽</p>
-                                <button onclick="purchaseModule('personnel', 3500)" id="personnelBtn">Купить</button>
-                            </div>
+                            <button class="carousel-button prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-button next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-dots"></div>
                         </div>
-                    </div>
+                    </section>
+
+                    <section class="store-section">
+                        <h3>Маркетинг</h3>
+                        <div class="carousel-container">
+                            <div class="carousel-track-container">
+                                <div class="carousel-track">
+                                    <div class="carousel-slide">
+                                        <div class="product-card">
+                                            <img src="images/marketing/basic-package.jpg" alt="Базовый пакет Маркетинг" class="product-image">
+                                            <h4 class="product-title">Базовый пакет Маркетинг</h4>
+                                            <p class="product-description">Включает основные инструменты:
+                                            <ul>
+                                                <li>Анализ рынка</li>
+                                                <li>Анализ конкурентов</li>
+                                                <li>Позиционирование</li>
+                                                <li>Целевая аудитория</li>
+                                            </ul>
+                                            </p>
+                                            <div class="product-price">15000</div>
+                                            <button class="buy-button" data-package="marketing-basic">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Купить базовый пакет
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <div class="product-card">
+                                            <img src="images/marketing/customer-segmentation.jpg" alt="Сегментация клиентов" class="product-image">
+                                            <h4 class="product-title">Сегментация клиентов</h4>
+                                            <p class="product-description">Анализ и сегментация клиентской базы для точечного маркетинга</p>
+                                            <div class="product-price">7000</div>
+                                            <button class="buy-button" data-package="marketing-segmentation">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Купить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-button prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-button next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </section>
+
+                    <section class="store-section">
+                        <h3>Продажи</h3>
+                        <div class="carousel-container">
+                            <div class="carousel-track-container">
+                                <div class="carousel-track">
+                                    <div class="carousel-slide">
+                                        <div class="product-card">
+                                            <img src="images/sales/basic-package.jpg" alt="Базовый пакет Продажи" class="product-image">
+                                            <h4 class="product-title">Базовый пакет Продажи</h4>
+                                            <p class="product-description">Включает основные инструменты:
+                                            <ul>
+                                                <li>Воронка продаж</li>
+                                                <li>План продаж</li>
+                                                <li>Анализ продаж</li>
+                                                <li>KPI менеджеров</li>
+                                            </ul>
+                                            </p>
+                                            <div class="product-price">15000</div>
+                                            <button class="buy-button" data-package="sales-basic">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Купить базовый пакет
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <div class="product-card">
+                                            <img src="images/sales/crm.jpg" alt="CRM система" class="product-image">
+                                            <h4 class="product-title">Автоматизация продаж на базе CRM</h4>
+                                            <p class="product-description">Внедрение и настройка CRM системы для автоматизации продаж</p>
+                                            <div class="product-price">7000</div>
+                                            <button class="buy-button" data-package="sales-crm">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Купить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-button prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-button next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </section>
+
+                    <section class="store-section">
+                        <h3>Персонал</h3>
+                        <div class="carousel-container">
+                            <div class="carousel-track-container">
+                                <div class="carousel-track">
+                                    <div class="carousel-slide">
+                                        <div class="product-card">
+                                            <img src="images/personnel/basic-package.jpg" alt="Базовый пакет Персонал" class="product-image">
+                                            <h4 class="product-title">Базовый пакет Персонал</h4>
+                                            <p class="product-description">Включает основные инструменты:
+                                            <ul>
+                                                <li>Штатное расписание</li>
+                                                <li>Организационная структура</li>
+                                                <li>Должностные инструкции</li>
+                                                <li>Система оплаты труда</li>
+                                            </ul>
+                                            </p>
+                                            <div class="product-price">15000</div>
+                                            <button class="buy-button" data-package="personnel-basic">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Купить базовый пакет
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <div class="product-card">
+                                            <img src="images/personnel/motivation-system.jpg" alt="Система мотивации" class="product-image">
+                                            <h4 class="product-title">Система мотивации</h4>
+                                            <p class="product-description">Разработка эффективной системы мотивации персонала</p>
+                                            <div class="product-price">7000</div>
+                                            <button class="buy-button" data-package="personnel-motivation">
+                                                <i class="fas fa-shopping-cart"></i>
+                                                Купить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-button prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-button next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </section>
                 </div>
-            </section>
-        </div>
+            </div>
+        </main>
     </div>
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Контакты</h3>
-                <p>Email: info@company.com</p>
-                <p>Телефон: +7 (XXX) XXX-XX-XX</p>
-                <p>Адрес: Ваш адрес</p>
-            </div>
-            <div class="footer-section">
-                <h3>Услуги</h3>
-                <a href="marketing/marketing.html">Маркетинг</a>
-                <a href="sales/sales.html">Продажи</a>
-                <a href="finance/finance.html">Финансы</a>
-                <a href="personnel/personnel.html">Персонал</a>
-            </div>
-            <div class="footer-section">
-                <h3>О компании</h3>
-                <a href="#">О нас</a>
-                <a href="#">Проекты</a>
-                <a href="#">Отзывы</a>
-                <a href="#">Блог</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Ваша Компания. Все права защищены.</p>
-        </div>
-    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/navigation.js"></script>
@@ -561,6 +933,7 @@ Journey Map (CJM)</a></li>
             document.getElementById('registerSection').style.display = 'none';
             document.getElementById('recoverySection').style.display = 'none';
             document.getElementById('dashboardSection').style.display = 'none';
+            document.getElementById('authSection').classList.add('active');
         }
 
         function switchToRegister() {
@@ -568,6 +941,7 @@ Journey Map (CJM)</a></li>
             document.getElementById('registerSection').style.display = 'block';
             document.getElementById('recoverySection').style.display = 'none';
             document.getElementById('dashboardSection').style.display = 'none';
+            document.getElementById('authSection').classList.add('active');
         }
 
         function switchToRecovery() {
@@ -575,6 +949,7 @@ Journey Map (CJM)</a></li>
             document.getElementById('registerSection').style.display = 'none';
             document.getElementById('recoverySection').style.display = 'block';
             document.getElementById('dashboardSection').style.display = 'none';
+            document.getElementById('authSection').classList.add('active');
             document.getElementById('recoveryStep1').style.display = 'block';
             document.getElementById('recoveryStep2').style.display = 'none';
         }
@@ -584,8 +959,10 @@ Journey Map (CJM)</a></li>
             document.getElementById('registerSection').style.display = 'none';
             document.getElementById('recoverySection').style.display = 'none';
             document.getElementById('dashboardSection').style.display = 'block';
+            document.getElementById('dashboardSection').classList.add('active');
             document.getElementById('userEmail').textContent = user.email;
             document.getElementById('userBalance').textContent = user.balance;
+            document.getElementById('authSection').classList.remove('active');
         }
 
         // Authentication functions
@@ -809,6 +1186,137 @@ Journey Map (CJM)</a></li>
                 showError('Ошибка сервера. Попробуйте позже');
             }
         }
+
+        // Product purchase function
+        function purchaseProduct(category, productId, price) {
+            if (confirm(`Вы уверены, что хотите купить этот продукт за ${price} ₽?`)) {
+                // Get current balance
+                const balanceElement = document.getElementById('userBalance');
+                const currentBalance = parseInt(balanceElement.textContent);
+                
+                if (currentBalance >= price) {
+                    // Update balance
+                    const newBalance = currentBalance - price;
+                    balanceElement.textContent = newBalance;
+                    
+                    // Show success message
+                    showSuccess(`Продукт успешно куплен! Новый баланс: ${newBalance} ₽`);
+                    
+                    // Disable the buy button
+                    event.target.disabled = true;
+                    event.target.textContent = 'Куплено';
+                    event.target.style.background = '#48bb78';
+                } else {
+                    showError('Недостаточно средств на балансе');
+                }
+            }
+        }
+
+        // Initialize carousels
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.carousel-container').forEach(container => {
+                const track = container.querySelector('.carousel-track');
+                const slides = Array.from(container.querySelectorAll('.carousel-slide'));
+                const nextButton = container.querySelector('.carousel-button.next');
+                const prevButton = container.querySelector('.carousel-button.prev');
+                const dotsContainer = container.querySelector('.carousel-dots');
+
+                let currentIndex = 0;
+                
+                // Create dots
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('button');
+                    dot.classList.add('carousel-dot');
+                    if (index === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => goToSlide(index));
+                    dotsContainer.appendChild(dot);
+                });
+
+                function updateDots() {
+                    const dots = dotsContainer.querySelectorAll('.carousel-dot');
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentIndex);
+                    });
+                }
+
+                function goToSlide(index) {
+                    currentIndex = index;
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    updateDots();
+                }
+
+                if (nextButton) {
+                    nextButton.addEventListener('click', () => {
+                        if (currentIndex < slides.length - 1) {
+                            goToSlide(currentIndex + 1);
+                        } else {
+                            goToSlide(0);
+                        }
+                    });
+                }
+
+                if (prevButton) {
+                    prevButton.addEventListener('click', () => {
+                        if (currentIndex > 0) {
+                            goToSlide(currentIndex - 1);
+                        } else {
+                            goToSlide(slides.length - 1);
+                        }
+                    });
+                }
+            });
+
+            // Handle package purchases
+            document.querySelectorAll('.buy-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const packageId = this.getAttribute('data-package');
+                    const isBasicPackage = packageId.includes('-basic');
+                    
+                    if (isBasicPackage) {
+                        // For basic packages, enable all core functionality
+                        const section = packageId.split('-')[0]; // e.g., 'finance', 'marketing'
+                        enableBasicFunctionality(section);
+                    } else {
+                        // For additional features, enable just that specific feature
+                        enableAdditionalFeature(packageId);
+                    }
+                });
+            });
+
+            function enableBasicFunctionality(section) {
+                // Enable all basic features for the given section
+                const basicFeatures = {
+                    'finance': ['p-n-l', 'balance', 'cash-flow', 'budget'],
+                    'marketing': ['market-analysis', 'competitors', 'positioning', 'target-audience'],
+                    'sales': ['sales-funnel', 'sales-plan', 'sales-analysis', 'kpi'],
+                    'personnel': ['staff-schedule', 'org-structure', 'job-descriptions', 'payment-system']
+                };
+
+                const features = basicFeatures[section];
+                if (features) {
+                    features.forEach(feature => {
+                        localStorage.setItem(`${section}-${feature}-enabled`, 'true');
+                    });
+                    alert(`Базовый пакет ${section} успешно активирован!`);
+                    updateUIAccess();
+                }
+            }
+
+            function enableAdditionalFeature(packageId) {
+                localStorage.setItem(`${packageId}-enabled`, 'true');
+                alert('Дополнительная функция успешно активирована!');
+                updateUIAccess();
+            }
+
+            function updateUIAccess() {
+                // Update UI based on enabled features
+                // This function would be called after purchase and on page load
+                // to show/hide features based on what's been purchased
+            }
+
+            // Initial UI update
+            updateUIAccess();
+        });
 
         // UI helper functions
         function showError(message) {
